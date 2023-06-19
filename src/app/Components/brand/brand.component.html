@@ -1,0 +1,17 @@
+
+    <ul class="list-group">
+        <li (click)="clearCurrentCategory()"
+        [class]="getByAllCategory()"
+        routerLink="/car">Tüm Ürünler
+        </li>
+        
+        <li
+             (click)="getCurrentCategory(brand)" *ngFor="let brand of brands" 
+             [class]="getByCurrentCategory(brand)"
+             routerLink="/car/brand/{{brand.id}}"> {{brand.brandName}}
+        </li>
+
+    </ul>
+    <br>
+    <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
+
