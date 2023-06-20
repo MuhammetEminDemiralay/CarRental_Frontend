@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/Models/brand';
 import { BrandService } from 'src/app/Services/brand.service';
 
+
 @Component({
   selector: 'app-brand',
   templateUrl: './brand.component.html',
@@ -14,9 +15,10 @@ export class BrandComponent implements OnInit {
   ngOnInit(): void {
     this.getBrands();
   }
-  
-  brands : Brand[] = []
+
+  brands : Brand[] = [];
   currentBrand : Brand;
+
 
   getBrands(){
     this.brandService.getBrands().subscribe(response => {
@@ -24,30 +26,35 @@ export class BrandComponent implements OnInit {
     })
   }
 
-  
-  getCurrentCategory(brand : Brand){
+
+  setCurrentBrand(brand : Brand){
     this.currentBrand = brand;
   }
 
-  getByCurrentCategory(brand : Brand){
+  getCurrentBrandClass(brand : Brand){
     if(brand == this.currentBrand){
-      return "list-group-item active"
+      return "list-group-item active";
     }else{
-      return "list-group-item"
+      return "list-group-item";
     }
   }
 
-  clearCategory : Brand;
-  clearCurrentCategory(){
-    this.currentBrand = this.clearCategory;
-  }
-
-  getByAllCategory(){
+  getAllBrandClass(){
     if(!this.currentBrand){
-      return "list-group-item active"
+      return "list-group-item active";
     }else{
-      return "list-group-item"
+      return "list-group-item";
     }
   }
 
+
+  unloadCurrentBrand : Brand;
+  getClearCurrentBrand(){
+    this.currentBrand = this.unloadCurrentBrand;
+  }
+  
 }
+
+
+
+

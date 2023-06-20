@@ -1,17 +1,24 @@
 
-    <ul class="list-group">
-        <li (click)="clearCurrentCategory()"
-        [class]="getByAllCategory()"
-        routerLink="/car">Tüm Ürünler
-        </li>
-        
-        <li
-             (click)="getCurrentCategory(brand)" *ngFor="let brand of brands" 
-             [class]="getByCurrentCategory(brand)"
-             routerLink="/car/brand/{{brand.id}}"> {{brand.brandName}}
-        </li>
 
-    </ul>
-    <br>
-    <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
+
+<ul class="list-group">
+
+    <li 
+    (click)="getClearCurrentBrand()"
+    [class]="getAllBrandClass()"
+    routerLink="/cardetails">All Cars
+    </li>
+
+    <li (click) = "setCurrentBrand(brand)"    
+    routerLink = "/cars/brand/{{brand.id}}"
+    *ngFor = "let brand of brands"  
+    [class] = "getCurrentBrandClass(brand)">{{brand.brandName}}
+    </li>
+</ul>
+
+<br>
+<h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
+
+
+
 
