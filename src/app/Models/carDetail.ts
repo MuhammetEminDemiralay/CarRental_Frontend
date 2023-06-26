@@ -1,5 +1,6 @@
 export interface CarDetail{
     id : number,
+    imagePath : string,
     brandId : number,
     brandName : string,
     companyName : string

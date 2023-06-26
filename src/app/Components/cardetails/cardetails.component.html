@@ -1,22 +1,27 @@
 <table class="table">
     <thead>
         <tr>
+            <th>İmage</th>
             <th>Brand</th>
-            <th>Company</th>
             <th>Color</th>
             <th>Model Year</th>
             <th>Daily Price</th>
             <th>Description</th>
+            <th>Detail</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let carDetail of carDetails">
+        <tr *ngFor="let carDetail of carDetails"  style="vertical-align: middle; font-weight: bold;">
+            <td><img [src]="imageUrl + carDetail.imagePath" class="kucuk-resim"></td>
             <td>{{carDetail.brandName}}</td>
-            <td>{{carDetail.companyName}}</td>
             <td>{{carDetail.colorName}}</td>
             <td>{{carDetail.modelYear}}</td>
             <td>{{carDetail.dailyPrice}}</td>
             <td>{{carDetail.description}}</td>
+            <td><button class="btn btn-outline-secondary">Detail</button></td>
         </tr>
     </tbody>
 </table>
+
+
+
