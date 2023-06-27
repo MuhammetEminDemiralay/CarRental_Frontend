@@ -3,6 +3,7 @@ export interface CarDetail{
     imagePath : string,
     brandId : number,
     brandName : string,
+    model : string,
     companyName : string
     colorName : string,
     modelYear : number,

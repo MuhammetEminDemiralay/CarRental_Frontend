@@ -3,6 +3,7 @@
         <tr>
             <th>İmage</th>
             <th>Brand</th>
+            <th>Model</th>
             <th>Color</th>
             <th>Model Year</th>
             <th>Daily Price</th>
@@ -14,11 +15,12 @@
         <tr *ngFor="let carDetail of carDetails"  style="vertical-align: middle; font-weight: bold;">
             <td><img [src]="imageUrl + carDetail.imagePath" class="kucuk-resim"></td>
             <td>{{carDetail.brandName}}</td>
+            <td>{{carDetail.model}}</td>
             <td>{{carDetail.colorName}}</td>
             <td>{{carDetail.modelYear}}</td>
             <td>{{carDetail.dailyPrice}}</td>
             <td>{{carDetail.description}}</td>
-            <td><button class="btn btn-outline-secondary">Detail</button></td>
+            <td><button routerLink="/moreCarDetails/{{carDetail.id}}" type="button" class="btn btn-outline-secondary">Detail</button></td>
         </tr>
     </tbody>
 </table>
