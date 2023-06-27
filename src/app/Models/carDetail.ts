@@ -1,6 +1,6 @@
 export interface CarDetail{
     id : number,
-    imagePath : string,
+    colorId : number,
     brandId : number,
     brandName : string,
     model : string,
@@ -9,4 +9,5 @@ export interface CarDetail{
     modelYear : number,
     dailyPrice : number,
     description : string
+    imagePath : string
 }

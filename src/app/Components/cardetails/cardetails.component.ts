@@ -16,10 +16,11 @@ export class CarDetailsComponent implements OnInit{
   constructor(private carİmagesService : CarİmageService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
   
   ngOnInit(): void {
-    this.getCarİmages();
     this.activatedRoute.params.subscribe(params => {
       if(params["brandId"]){
         this.getCarsDetailsBrand(params["brandId"]);
+      }else if(params["colorId"]){
+        this.getCarsDetailColor(params["colorId"])
       }else{
         this.getCarDetails();
       }
@@ -27,6 +28,7 @@ export class CarDetailsComponent implements OnInit{
   }
 
   carDetails : CarDetail[] = [];
+  imageUrl = "https://localhost:44313/"
 
   getCarDetails(){
     this.carDetailService.getCarsDetail().subscribe(response => {
@@ -42,21 +44,37 @@ export class CarDetailsComponent implements OnInit{
     })
   }
 
-  images : CarImage[] = [];
-  imageUrl = "https://localhost:44313/"
 
-  getCarİmages(){
-    this.carİmagesService.getAllİmages().subscribe(response => {
-      this.images = response.data;
+  getCarsDetailColor(colorId : number){
+    this.carDetailService.getCarDetailColor(colorId).subscribe(response => {
+      this.carDetails = response.data;
     })
   }
 
 
-  getİmagesByCarId(carId : number){
-    this.carİmagesService.getImagesByCarId(carId).subscribe(response => {
-      this.images = response.data;
-    })
-  }
+
+
+
+
+
+
+
+
+
+  // images : CarImage[] = [];
+  
+  // getCarİmages(){
+  //   this.carİmagesService.getAllİmages().subscribe(response => {
+  //     this.images = response.data;
+  //   })
+  // }
+
+
+  // getİmagesByCarId(carId : number){
+  //   this.carİmagesService.getImagesByCarId(carId).subscribe(response => {
+  //     this.images = response.data;
+  //   })
+  // }
 
 
   
