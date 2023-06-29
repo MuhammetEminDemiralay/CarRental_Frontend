@@ -1,0 +1,19 @@
+.sidebarHeader{
+    display: flex;
+  }
+
+  ul div{
+    border-radius: 6px;
+  }
+
+button{
+    border-style: solid;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background-color: black;
+    border-radius: 5px;
+    font-style: italic;
+    color: white;
+    opacity: 80%;
+}

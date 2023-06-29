@@ -11,6 +11,12 @@ import { CarDetailsComponent } from './Components/cardetails/cardetails.componen
 import { HomeComponent } from './Components/home/home.component';
 import { ColorComponent } from './Components/color/color.component';
 import { MorecardetailsComponent } from './Components/morecardetails/morecardetails.component';
+import { BrandUpdateComponent } from './Components/brand/brand-update/brand-update.component';
+import { BrandAddComponent } from './Components/brand/brand-add/brand-add.component';
+import { ColorAddComponent } from './Components/color/color-add/color-add.component';
+import { ColorUpdateComponent } from './Components/color/color-update/color-update.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './Components/footer/footer.component';
 
 
 @NgModule({
@@ -22,13 +28,19 @@ import { MorecardetailsComponent } from './Components/morecardetails/morecardeta
     CarDetailsComponent,
     HomeComponent,
     ColorComponent,
-    MorecardetailsComponent
+    MorecardetailsComponent,
+    BrandUpdateComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    ColorUpdateComponent,
+    FooterComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

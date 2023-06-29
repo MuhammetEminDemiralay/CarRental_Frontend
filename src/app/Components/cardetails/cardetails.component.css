@@ -1,5 +1,29 @@
-.kucuk-resim {
-    max-width: 45%;
-    max-height: auto;
-    display: block;
-  }
+
+
+
+
+
+ul{
+  border-style: solid;
+  border-width:1px;
+  width: 250px;
+  height: 250px;
+  display: inline-table;
+  margin: 10px 10px;
+}
+
+ul li img{
+  
+  width: 240px;
+  height: 190px;
+  background-size: 200px;
+  
+  
+}
+
+ul li button{
+  border-style: solid;
+  background-color: rgb(0, 27, 121);
+  color: aliceblue;
+}
+

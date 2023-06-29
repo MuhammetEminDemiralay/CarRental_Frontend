@@ -1,0 +1,38 @@
+#box1{
+    border-style: solid;
+    border-color: rgb(101, 101, 101);
+    background-color: rgb(255, 255, 255);
+    position: sticky;
+    top: 190px;
+    left: 570px;
+    width: 600px;
+    height: 200px;
+    border-radius: 10px;
+   
+}
+
+#box2{
+    
+    position: absolute;
+    left: 80px;
+    bottom: 65px;
+
+}
+
+#box3{
+    position: absolute;
+    right: 80px;
+    bottom: 65px;
+}
+
+button{
+    border-style: solid;
+    width: 150px;
+    border-radius: 6px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: large;
+    position: relative;
+    top: 120px;
+    left: 220px;
+}
