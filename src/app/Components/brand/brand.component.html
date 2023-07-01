@@ -16,14 +16,24 @@
    <li class="list-group-item"
    (click)="getClearCurrentBrand()">
     <h5>Brands</h5>
-    <button routerLink="/brandAdd">+</button>
+    <button id="buttonAdd" routerLink="/brandAdd">+</button>
    </li>
 
 
-    <li (click) = "setCurrentBrand(brand)"    
+    <li  
+    (click) = "setCurrentBrand(brand)"    
     routerLink = "/cars/brand/{{brand.id}}"
     *ngFor = "let brand of brands"  
-    [class] = "getCurrentBrandClass(brand)">{{brand.brandName}}
+    [class] = "getCurrentBrandClass(brand)">
+    <div>
+        {{brand.brandName}}
+    </div>
+    <div >
+        <button id="updateButton" routerLink="/brandUpdate">/</button>
+    </div>
+    <div>
+        <button id="buttonDelete" (click)="deleteBrand(brand)">-</button>
+    </div>
     </li>
 </ul>
 

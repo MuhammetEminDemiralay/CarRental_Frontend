@@ -1,0 +1,20 @@
+<div id="box1"  *ngFor="let carDetail of carDetails">
+    
+    <img id="img" src="{{imageUrl + carDetail.imagePath}}">
+    <div>
+        <ul class="list-group-item" style="vertical-align:bottom 20px;">
+            <div style="text-indent: 10px;">
+                <h3 style="font-size: larger; font-weight: bolder;" >{{carDetail.brandName}} || {{carDetail.model}}</h3>
+                <p>{{carDetail.brandDescription}}</p>
+            </div>
+            <li><b>Color : </b><b>{{carDetail.colorName}}</b></li>
+            <li><b>Model Year : </b><b>{{carDetail.modelYear}}</b></li>
+            <li><b>Daily Price : </b><b>{{carDetail.dailyPrice}}</b></li>
+            <li><b>Description : </b><b>{{carDetail.description}}</b></li>
+        </ul>
+        
+    </div>   
+     
+</div>
+
+    

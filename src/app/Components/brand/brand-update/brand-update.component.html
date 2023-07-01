@@ -1,1 +1,12 @@
-<p>brand-update works!</p>
+<form [formGroup]="brandUpdateForm">
+    <h5>Brand a update</h5>
+    <div>
+        <h6>Brand</h6>
+        <input type="text" formControlName="brandName">
+    </div>
+    <div>
+        <h6>Model</h6>
+        <input type="text" formControlName="model">
+    </div>
+    <button (click)="updateBrand()"></button>
+</form>

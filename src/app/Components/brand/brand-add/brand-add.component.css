@@ -5,25 +5,20 @@
     position: sticky;
     top: 190px;
     left: 570px;
-    width: 600px;
+    width: 300px;
     height: 200px;
     border-radius: 10px;
-   
+    box-shadow: 20px 20px 15px rgb(63, 63, 63);
 }
 
 #box2{
     
     position: absolute;
-    left: 80px;
-    bottom: 65px;
+    left: 50px;
+    bottom: 70px;
 
 }
 
-#box3{
-    position: absolute;
-    right: 80px;
-    bottom: 65px;
-}
 
 button{
     border-style: solid;
@@ -34,5 +29,5 @@ button{
     font-size: large;
     position: relative;
     top: 120px;
-    left: 220px;
+    left: 70px;
 }

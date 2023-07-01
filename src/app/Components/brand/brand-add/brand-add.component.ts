@@ -21,8 +21,7 @@ export class BrandAddComponent implements OnInit{
 
   createAddForm(){
     this.brandAddForm = this.formBuilder.group({
-      brandName : ["", Validators.required],
-      model : ["", Validators.required]
+      brandName : ["", Validators.required]
     })
   }
 

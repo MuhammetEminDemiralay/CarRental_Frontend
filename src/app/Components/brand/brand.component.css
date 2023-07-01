@@ -6,14 +6,41 @@
     border-radius: 6px;
   }
 
-button{
+#buttonAdd{
     border-style: solid;
     position: absolute;
     right: 15px;
     top: 10px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     border-radius: 5px;
     font-style: italic;
-    color: white;
-    opacity: 80%;
+    color: rgb(255, 255, 255);
+    opacity: 100%;
 }
+
+#buttonDelete{
+  border-style: solid;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-style: italic;
+  color: rgb(0, 0, 0);
+  opacity: 100%;
+}
+
+#updateButton{
+  border-style: solid;
+  position: absolute;
+  right: 45px;
+  top: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-style: italic;
+  color: rgb(0, 0, 0);
+  opacity: 100%;
+}
+
+
+
