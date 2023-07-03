@@ -22,8 +22,7 @@ export class BrandComponent implements OnInit {
   brands : Brand[] = [];
   carModels : CarModel[] = [];
   currentBrand : Brand;
-
-
+  a = 20;
   getBrands(){
     this.brandService.getBrands().subscribe(response => {
       this.brands = response.data;

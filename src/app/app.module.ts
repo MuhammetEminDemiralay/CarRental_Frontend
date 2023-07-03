@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NaviComponent } from './Components/navi/navi.component';
 import { BrandComponent } from './Components/brand/brand.component';
 import { HttpClientModule } from "@angular/common/http";
-import { CarComponent } from './Components/car/car.component';
 import { CarDetailsComponent } from './Components/cardetails/cardetails.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ColorComponent } from './Components/color/color.component';
@@ -17,6 +16,8 @@ import { ColorAddComponent } from './Components/color/color-add/color-add.compon
 import { ColorUpdateComponent } from './Components/color/color-update/color-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './Components/footer/footer.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 
 @NgModule({
@@ -24,7 +25,6 @@ import { FooterComponent } from './Components/footer/footer.component';
     AppComponent,
     NaviComponent,
     BrandComponent,
-    CarComponent,
     CarDetailsComponent,
     HomeComponent,
     ColorComponent,
@@ -33,7 +33,9 @@ import { FooterComponent } from './Components/footer/footer.component';
     BrandAddComponent,
     ColorAddComponent,
     ColorUpdateComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
 
   ],
   imports: [

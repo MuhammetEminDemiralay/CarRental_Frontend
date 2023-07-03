@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrandComponent } from './Components/brand/brand.component';
-import { CarComponent } from './Components/car/car.component';
 import { CarDetailsComponent } from './Components/cardetails/cardetails.component';
 import { MorecardetailsComponent } from './Components/morecardetails/morecardetails.component';
 import { BrandAddComponent } from './Components/brand/brand-add/brand-add.component';
@@ -9,6 +8,8 @@ import { ColorComponent } from './Components/color/color.component';
 import { ColorAddComponent } from './Components/color/color-add/color-add.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { BrandUpdateComponent } from './Components/brand/brand-update/brand-update.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path : "moreCarDetails/:carId", component : MorecardetailsComponent},
   {path : "brandAdd", component : BrandAddComponent},
   {path : "colorAdd", component : ColorAddComponent},
-  {path : "brandUpdate", component : BrandUpdateComponent}
+  {path : "brandUpdate", component : BrandUpdateComponent},
+  {path : "login", component : LoginComponent},
+  {path : "register", component : RegisterComponent}
 ];
 
 @NgModule({

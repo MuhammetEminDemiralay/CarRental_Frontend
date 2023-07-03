@@ -1,0 +1,32 @@
+<form [formGroup]="registerForm">
+    
+   <div id="box1">
+    <h3>Login</h3>
+
+    <div>
+        <label>FirstName</label><br>
+        <input type="text" formControlName="firstName">
+    </div>
+
+    <div>
+        <label>LastName</label><br>
+        <input type="text" formControlName="lastName">
+    </div>
+
+    <div>
+        <label>Email</label><br>
+        <input type="text" formControlName="email">
+    </div>
+
+    <div>
+        <label>Password</label><br>
+        <input type="password" formControlName="password">
+    </div>
+    <div>
+        <button (click)="register()">Register</button>
+    </div>
+
+   </div>
+    
+    
+</form>

@@ -4,6 +4,14 @@
     <li class="list-group-item text-center">{{carDetail.model}}</li>
     <li class="list-group-item text-center">{{carDetail.colorName}}</li>
     <li class="list-group-item text-center">{{carDetail.modelYear}}</li>
-    <li class="list-group-item text-center"><button type="button" class="btn btn-outline" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button></li>
-  </ul>
+
+    <div *ngIf="">
+      <li class="list-group-item text-center"><button type="button" class="btn btn-outline" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button></li>
+    </div>
+
+    <div>
+      <li class="list-group-item text-center"><button type="button" class="btn btn-outline" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button></li>
+    </div>
+
+    </ul>
 

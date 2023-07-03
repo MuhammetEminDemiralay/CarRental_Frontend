@@ -1,39 +1,42 @@
+
 #box1{
     border-style: solid;
     border-width: 1px;
+    width: 500px;
     margin: auto;
-    width: 700px;
-    min-height: 700px; 
+    
 }
 
-#img{
+#box2{
     border-style: solid;
-    position: relative;
-    border-width: 0px;
-    width: 700px;
-    height:auto;
+    border-width: 1px;
+    padding: 8px;
+    width: 500px;
+    text-indent: 10px;
 }
 
-#b1{
-    text-indent: 20px;
+#box3{
+    border-style: solid;
+    border-width: 0px;
+    width: 500px;
+    height: 70px;
+}
+
+img{
+    width: 500px;
+}
+
+
+ul{
+    border-style: solid;
+    list-style-type: none;
+    border-width: 0px;
+    border-color: rgb(195, 195, 195);
 }
 
 li{
     border-style: solid;
-    border-color: rgb(184, 182, 182);
-    border-width: thin;
-   
-    min-height: 40px;
-    list-style-type: none;
+    border-width: 1px;
+    padding: 8px;
     text-indent: 10px;
-
-    
 }
-
-b{
-    position: relative;
-    top: 5px;
-}
-
-
-
