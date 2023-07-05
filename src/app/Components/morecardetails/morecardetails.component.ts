@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/Models/carDetail';
+import { AuthService } from 'src/app/Services/auth.service';
 import { CardetailService } from 'src/app/Services/cardetail.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { CardetailService } from 'src/app/Services/cardetail.service';
 export class MorecardetailsComponent implements OnInit{
   
 
-  constructor(private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
+  constructor(private authService : AuthService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
 
   ngOnInit(): void {
    this.activatedRoute.params.subscribe(params =>{
@@ -19,6 +20,8 @@ export class MorecardetailsComponent implements OnInit{
       this.getMoreCarDetails(params["carId"])
     }
    })
+
+   this.authService.getUser();
   }
 
   carDetails : CarDetail[];
@@ -29,6 +32,14 @@ export class MorecardetailsComponent implements OnInit{
       this.carDetails = response.data 
     })
   }
+
+  isAdmin(){
+   return this.authService.isAdmin();
+  }
   
+
+  isAuthenticated(){
+    return this.authService.loggedIn();
+  }
 
 }

@@ -15,9 +15,25 @@
             <li><b>Description : </b>{{carDetail.description}}</li>
         </ul>   
 
-        <div id="box3">
+        <div *ngIf="isAdmin()">
+            <div>
+                <button class="btn btn-outline-primary">Add</button>
+            </div>
+            <div>
+                <button class="btn btn-outline-primary">Update</button>
+            </div>
+            <div>
+                <button class="btn btn-outline-primary">Delete</button>
+            </div>
+        </div>
+
+        <div *ngIf="isAuthenticated()">
+            <div *ngIf="!isAdmin()">
+                <button class="btn btn-outline-primary">Rent this car</button>
+            </div>
             
         </div>
+        
 </div>
 
     

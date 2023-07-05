@@ -12,7 +12,7 @@ export class LocalStorageService {
     localStorage.setItem("_token", token);
   }
 
-  getToken(){
+  getToken() : any{
     localStorage.getItem("_token");
   }
 
@@ -20,4 +20,5 @@ export class LocalStorageService {
     localStorage.removeItem("_token");
   }
 
+  
 }

@@ -4,14 +4,15 @@
     <li class="list-group-item text-center">{{carDetail.model}}</li>
     <li class="list-group-item text-center">{{carDetail.colorName}}</li>
     <li class="list-group-item text-center">{{carDetail.modelYear}}</li>
-
-    <div *ngIf="">
-      <li class="list-group-item text-center"><button type="button" class="btn btn-outline" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button></li>
+    
+    <div *ngIf="!isAdmin()">
+      <button type="button" class="btn btn-outline-info" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button>
     </div>
 
-    <div>
-      <li class="list-group-item text-center"><button type="button" class="btn btn-outline" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button></li>
+    <div *ngIf="isAdmin()">
+      <button type="button" class="btn btn-outline-info" routerLink="/moreCarDetails/{{carDetail.id}}">Edit</button>
     </div>
 
-    </ul>
+  </ul>
 
+    

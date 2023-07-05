@@ -40,3 +40,10 @@ li{
     padding: 8px;
     text-indent: 10px;
 }
+
+button{
+    width: 100px;
+    position: relative;
+    left: 180px;
+    bottom: 6px;
+}

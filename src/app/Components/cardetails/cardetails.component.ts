@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/Models/carDetail';
 import { CarImage } from 'src/app/Models/carİmage';
+import { AuthService } from 'src/app/Services/auth.service';
 import { CardetailService } from 'src/app/Services/cardetail.service';
 import { CarİmageService } from 'src/app/Services/cari̇mage.service';
 
@@ -13,7 +14,7 @@ import { CarİmageService } from 'src/app/Services/cari̇mage.service';
 })
 export class CarDetailsComponent implements OnInit{
   
-  constructor(private carİmagesService : CarİmageService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
+  constructor(private authService : AuthService ,private carİmagesService : CarİmageService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -25,6 +26,7 @@ export class CarDetailsComponent implements OnInit{
         this.getCarDetails();
       }
     })
+    this.authService.getUser();
   }
 
   carDetails : CarDetail[] = [];
@@ -52,32 +54,9 @@ export class CarDetailsComponent implements OnInit{
   }
 
 
-
-
-
-
-
-
-
-
-
-  // images : CarImage[] = [];
-  
-  // getCarİmages(){
-  //   this.carİmagesService.getAllİmages().subscribe(response => {
-  //     this.images = response.data;
-  //   })
-  // }
-
-
-  // getİmagesByCarId(carId : number){
-  //   this.carİmagesService.getImagesByCarId(carId).subscribe(response => {
-  //     this.images = response.data;
-  //   })
-  // }
-
-
-  
+  isAdmin(){
+    return this.authService.isAdmin()
+  }
 
 
 }
