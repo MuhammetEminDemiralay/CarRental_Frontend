@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Car } from 'src/app/Models/car';
 import { CarDetail } from 'src/app/Models/carDetail';
+import { CarImage } from 'src/app/Models/carİmage';
 import { AuthService } from 'src/app/Services/auth.service';
 import { CardetailService } from 'src/app/Services/cardetail.service';
+import { CarİmageService } from 'src/app/Services/cari̇mage.service';
 
 @Component({
   selector: 'app-morecardetails',
@@ -12,7 +15,7 @@ import { CardetailService } from 'src/app/Services/cardetail.service';
 export class MorecardetailsComponent implements OnInit{
   
 
-  constructor(private authService : AuthService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
+  constructor(private router : Router ,private carImageService :CarİmageService ,private authService : AuthService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
 
   ngOnInit(): void {
    this.activatedRoute.params.subscribe(params =>{
@@ -20,17 +23,43 @@ export class MorecardetailsComponent implements OnInit{
       this.getMoreCarDetails(params["carId"])
     }
    })
-
    this.authService.getUser();
+   this.getCars();
+   
   }
 
-  carDetails : CarDetail[];
+  carDetails : CarDetail[] = [];
   imageUrl = "https://localhost:44313/"
+  noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
 
   getMoreCarDetails(carId : CarDetail){
     this.carDetailService.getMoreCarDetails(carId).subscribe(response => {
       this.carDetails = response.data 
     })
+  }
+
+  car : Car;
+  getCars(){
+    this.activatedRoute.params.subscribe(params =>{
+    let carId = params["carId"];
+    this.carDetailService.getCarCarId(carId).subscribe(response => {
+      this.car = response.data;
+    })
+    })
+  }
+
+  delete(){
+    this.carDetailService.delete(this.car).subscribe(response => {
+    this.router.navigate(["cardetails"])      
+    })
+  }
+
+  update(){
+    this.activatedRoute.params.subscribe(params =>{
+      let carId = params["carId"];
+      this.router.navigate(['updatecar', {carId : carId}])
+    })
+    
   }
 
   isAdmin(){

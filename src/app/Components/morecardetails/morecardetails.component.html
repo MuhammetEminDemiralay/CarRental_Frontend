@@ -1,8 +1,8 @@
 <div *ngFor="let carDetail of carDetails">
         <div id="box1">
-            <img src="{{imageUrl + carDetail.imagePath}}">
-       
-        
+          
+                <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
+               
         <div id="box2">
             <h3>{{carDetail.brandName}} || {{carDetail.model}}</h3>
             <p>{{carDetail.brandDescription}}</p>
@@ -17,23 +17,43 @@
 
         <div *ngIf="isAdmin()">
             <div>
-                <button class="btn btn-outline-primary">Add</button>
+                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#add">Add</button>
             </div>
             <div>
-                <button class="btn btn-outline-primary">Update</button>
+                <button class="btn btn-outline-primary" (click)="update()">Update</button>
             </div>
             <div>
-                <button class="btn btn-outline-primary">Delete</button>
+                <button class="btn btn-outline-primary" (click)="delete()">Delete</button>
             </div>
         </div>
 
         <div *ngIf="isAuthenticated()">
             <div *ngIf="!isAdmin()">
                 <button class="btn btn-outline-primary">Rent this car</button>
-            </div>
-            
+            </div> 
         </div>
-        
 </div>
+
+
+
+<div class="modal" tabindex="-1" id="add">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 570px;">
+        <div class="modal-header">
+          <h5 class="modal-title">Add new car</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-car-add></app-car-add>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
 
     

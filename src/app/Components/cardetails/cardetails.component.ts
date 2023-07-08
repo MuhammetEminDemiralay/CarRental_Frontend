@@ -30,12 +30,12 @@ export class CarDetailsComponent implements OnInit{
   }
 
   carDetails : CarDetail[] = [];
-  imageUrl = "https://localhost:44313/"
+  imageUrl = "https://localhost:44313/";
+  noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
 
   getCarDetails(){
     this.carDetailService.getCarsDetail().subscribe(response => {
-      this.carDetails = response.data;
-      
+      this.carDetails = response.data;      
     })
   }
 

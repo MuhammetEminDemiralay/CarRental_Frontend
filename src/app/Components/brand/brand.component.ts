@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/Models/brand';
-import { CarModel } from 'src/app/Models/carModel';
+import { BrandModel } from 'src/app/Models/brandModel';
 import { BrandService } from 'src/app/Services/brand.service';
-import { CarModelService } from 'src/app/Services/carmodel.service';
+import { BrandModelService } from 'src/app/Services/brandmodel.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { CarModelService } from 'src/app/Services/carmodel.service';
 })
 export class BrandComponent implements OnInit {
   
-  constructor(private brandService : BrandService, private carModelService : CarModelService){}
+  constructor(private brandService : BrandService, private brandModelService : BrandModelService){}
 
   ngOnInit(): void {
     this.getBrands();
@@ -20,9 +20,9 @@ export class BrandComponent implements OnInit {
   }
 
   brands : Brand[] = [];
-  carModels : CarModel[] = [];
+  carModels : BrandModel[] = [];
   currentBrand : Brand;
-  a = 20;
+  
   getBrands(){
     this.brandService.getBrands().subscribe(response => {
       this.brands = response.data;
@@ -64,7 +64,7 @@ export class BrandComponent implements OnInit {
   }
   
   getCarModels(){
-    this.carModelService.carModels().subscribe(response => {
+    this.brandModelService.brandModels().subscribe(response => {
       this.carModels = response.data;
     })
   }

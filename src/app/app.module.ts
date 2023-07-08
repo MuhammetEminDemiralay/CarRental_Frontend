@@ -19,6 +19,9 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { CarAddComponent } from './Components/cardetails/car-add/car-add.component';
+import { UpdateCarComponent } from './Components/cardetails/update-car/update-car.component';
+
 
 
 export function tokenGetter() {
@@ -40,7 +43,9 @@ export function tokenGetter() {
     ColorUpdateComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CarAddComponent,
+    UpdateCarComponent   
 
   ],
   imports: [

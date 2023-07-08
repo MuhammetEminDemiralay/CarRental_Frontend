@@ -10,6 +10,8 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { BrandUpdateComponent } from './Components/brand/brand-update/brand-update.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { CarAddComponent } from './Components/cardetails/car-add/car-add.component';
+import { UpdateCarComponent } from './Components/cardetails/update-car/update-car.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,10 @@ const routes: Routes = [
   {path : "colorAdd", component : ColorAddComponent},
   {path : "brandUpdate", component : BrandUpdateComponent},
   {path : "login", component : LoginComponent},
-  {path : "register", component : RegisterComponent}
+  {path : "register", component : RegisterComponent},
+  {path : "add", component : CarAddComponent},
+  {path : "updatecar", component : UpdateCarComponent}
+  
 ];
 
 @NgModule({
