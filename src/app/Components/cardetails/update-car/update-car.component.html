@@ -17,7 +17,7 @@
         <div>
             <label>Model</label><br>
             <select class="form-group" formControlName="brandModelId">
-                <option [ngValue]="carModel.id" *ngFor="let carModel of brandModels">{{carModel.model}}</option>
+                <option [ngValue]="brandModel.id" *ngFor="let brandModel of brandModels">{{brandModel.model}}</option>
             </select>
         </div>
 
@@ -36,6 +36,6 @@
             <input type="text" formControlName="description">
         </div>
 
-        <button (click)="update()" class="btn btn-outline-success">Add</button>
+        <button (click)="update()" class="btn btn-outline-success">Update</button>
     </div>
 </form>

@@ -2,8 +2,8 @@
   <ul *ngFor="let carDetail of carDetails" class="list-group list-group-flush">
     <li class="list-group-item text-center"><img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl"></li>
     <li class="list-group-item text-center">{{carDetail.model}}</li>                                            
-    <li class="list-group-item text-center">{{carDetail.colorName}}</li>
     <li class="list-group-item text-center">{{carDetail.modelYear}}</li>
+    <li class="list-group-item text-center">{{carDetail.dailyPrice}} $</li>
     
     <div *ngIf="!isAdmin()">
       <button type="button" class="btn btn-outline-info" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button>

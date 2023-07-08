@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/Models/brand';
 import { BrandModel } from 'src/app/Models/brandModel';
 import { Car } from 'src/app/Models/car';
@@ -18,7 +18,7 @@ import { ColorService } from 'src/app/Services/color.service';
 export class UpdateCarComponent implements OnInit{
   
 
-  constructor(private formBuilder : FormBuilder, private brandModelService : BrandModelService, private brandService : BrandService ,private colorService : ColorService, private carDetails : CardetailService, private activatedRoute : ActivatedRoute){}
+  constructor(private router : Router ,private formBuilder : FormBuilder, private brandModelService : BrandModelService, private brandService : BrandService ,private colorService : ColorService, private carDetails : CardetailService, private activatedRoute : ActivatedRoute){}
 
   ngOnInit(): void {
     this.getCarId();
@@ -46,6 +46,7 @@ export class UpdateCarComponent implements OnInit{
     this.carDetails.getCarCarId(this.carId).subscribe(response =>{
       let car = response.data;
       this.carsForm.setValue({
+       id : this.carId,
        brandId : car.brandId,
        colorId : car.colorId,
        brandModelId : car.brandModelId,
@@ -58,6 +59,7 @@ export class UpdateCarComponent implements OnInit{
 
   createForms(){
     this.carsForm = this.formBuilder.group({
+      id : [""],
       brandId : ["", Validators.required],
       colorId : ["", Validators.required],
       brandModelId : ["", Validators.required],
@@ -86,7 +88,10 @@ export class UpdateCarComponent implements OnInit{
   }
 
   update(){
-
+    let productModel = Object.assign({}, this.carsForm.value);
+    this.carDetails.update(productModel).subscribe(response => {
+      this.router.navigate(["cardetails"])
+    })
   }
 
 

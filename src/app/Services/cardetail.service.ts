@@ -46,7 +46,11 @@ export class CardetailService {
   }
 
   getCarCarId(carId : number) : Observable<SingleResponseModel<Car>>{
-    return this.httpClient.get<SingleResponseModel<Car>>(this.apiUrl + "Car/get?id=" + carId)
+    return this.httpClient.get<SingleResponseModel<Car>>(this.apiUrl + "Car/get?id=" + carId);
+  }
+
+  update(car : Car) : Observable<SingleResponseModel<Car>>{
+    return this.httpClient.post<SingleResponseModel<Car>>(this.apiUrl + "Car/update", car);
   }
   
 

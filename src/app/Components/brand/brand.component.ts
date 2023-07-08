@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Brand } from 'src/app/Models/brand';
 import { BrandModel } from 'src/app/Models/brandModel';
 import { BrandService } from 'src/app/Services/brand.service';
@@ -12,7 +13,7 @@ import { BrandModelService } from 'src/app/Services/brandmodel.service';
 })
 export class BrandComponent implements OnInit {
   
-  constructor(private brandService : BrandService, private brandModelService : BrandModelService){}
+  constructor(private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
 
   ngOnInit(): void {
     this.getBrands();
