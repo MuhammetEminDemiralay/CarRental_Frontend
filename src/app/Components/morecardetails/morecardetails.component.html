@@ -30,7 +30,7 @@
 
         <div *ngIf="isAuthenticated()">
             <div *ngIf="!isAdmin()">
-                <button class="btn btn-outline-primary">Rent this car</button>
+                <button class="btn btn-outline-primary" (click)="rentCarId()">Rent this car</button>
             </div> 
         </div>
 </div>

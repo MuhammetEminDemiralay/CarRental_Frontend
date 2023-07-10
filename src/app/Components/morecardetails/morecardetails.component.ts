@@ -48,6 +48,13 @@ export class MorecardetailsComponent implements OnInit{
     })
   }
 
+  rentCarId(){
+    this.activatedRoute.params.subscribe(params => {
+      let carId = params["carId"];
+      this.router.navigate(['rentcar', {carId : carId}])
+    })
+  }
+
   delete(){
     this.carDetailService.delete(this.car).subscribe(response => {
     this.router.navigate(["cardetails"])      
@@ -59,7 +66,6 @@ export class MorecardetailsComponent implements OnInit{
       let carId = params["carId"];
       this.router.navigate(['updatecar', {carId : carId}])
     })
-    
   }
 
   isAdmin(){
@@ -70,5 +76,7 @@ export class MorecardetailsComponent implements OnInit{
   isAuthenticated(){
     return this.authService.loggedIn();
   }
+
+  
 
 }

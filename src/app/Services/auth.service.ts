@@ -58,7 +58,9 @@ export class AuthService{
 
         let claimInfo = Object.keys(decodedToken).filter(u => u.endsWith('/role'))[0];
         let roles = decodedToken[claimInfo];
-
+      
+        // let userIdModel = String(userId) 
+        // localStorage.setItem('model', userIdModel);  
 
         let tokenInfoEmail = decodedToken.email;
 

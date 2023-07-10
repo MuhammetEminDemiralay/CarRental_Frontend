@@ -1,0 +1,16 @@
+
+<form [formGroup]="rentForms">
+<div id="box1">
+    <div>
+        <label>Rent Date</label>
+        <input type="date" min={{minDate}} formControlName="rentDate">
+    </div>
+    
+    <div>
+        <label>Return Date</label>
+        <input type="date" min={{minDate}} formControlName="returnDate">
+    </div>
+
+    <button (click)="rent()" class="btn-outline-info">Rent</button>
+</div>
+</form>
