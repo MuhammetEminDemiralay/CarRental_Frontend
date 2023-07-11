@@ -13,6 +13,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { CarAddComponent } from './Components/cardetails/car-add/car-add.component';
 import { UpdateCarComponent } from './Components/cardetails/update-car/update-car.component';
 import { RentcarComponent } from './Components/rentcar/rentcar.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path : "register", component : RegisterComponent},
   {path : "add", component : CarAddComponent},
   {path : "updatecar", component : UpdateCarComponent},
-  {path : "rentcar", component : RentcarComponent}
+  {path : "rentcar", component : RentcarComponent},
+  {path : "payment", component : PaymentComponent}
   
 ];
 

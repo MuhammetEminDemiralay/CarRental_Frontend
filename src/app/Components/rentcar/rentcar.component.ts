@@ -51,7 +51,6 @@ export class RentcarComponent implements OnInit{
 
     this.rentService.rentAdd(model).subscribe(response => {
       console.log(response.message);
-      
     })
 
 

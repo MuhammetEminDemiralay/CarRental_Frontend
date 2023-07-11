@@ -22,6 +22,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { CarAddComponent } from './Components/cardetails/car-add/car-add.component';
 import { UpdateCarComponent } from './Components/cardetails/update-car/update-car.component';
 import { RentcarComponent } from './Components/rentcar/rentcar.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 
 
@@ -47,7 +48,8 @@ export function tokenGetter() {
     RegisterComponent,
     CarAddComponent,
     UpdateCarComponent,
-    RentcarComponent   
+    RentcarComponent,
+    PaymentComponent   
 
   ],
   imports: [

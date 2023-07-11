@@ -1,0 +1,49 @@
+
+
+
+<div id="box1">
+
+<div>
+    <label>My registered cards</label><br>
+    <select>
+        <option *ngFor="let saveCard of saveCards">{{saveCard.nameOnTheCard}}</option>
+    </select>
+</div>
+
+<form [formGroup]="creditCardForms">
+   
+        <div>
+            <label>Card Number</label><br>
+            <input type="number" formControlName="cardNumber">
+        </div>
+
+        <div>
+            <label>Date Month</label><br>
+            <input type="number" formControlName="dateMonth">
+        </div>
+
+        <div>
+            <label>Date Year</label><br>
+            <input type="number" formControlName="dateYear">
+        </div>
+
+        <div>
+            <label>Name on the card</label><br>
+            <input type="text" formControlName="nameOnTheCard">
+        </div>
+
+        <div>
+            <label>Cvv</label><br>
+            <input type="text" formControlName="cvv">
+        </div>
+
+        <br>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" (click)="saveCreditCard()">
+        </div>
+
+   
+</form>
+
+</div>

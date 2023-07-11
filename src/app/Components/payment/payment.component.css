@@ -1,0 +1,23 @@
+div{
+    margin: 10px;
+    margin: auto;
+}
+
+#box1{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    padding: 20px;
+}
+
+input{
+    border-radius: 4px;
+}
+
+select{
+    border-radius: 5px;
+    width: 190px;
+    height: 30px;
+}
