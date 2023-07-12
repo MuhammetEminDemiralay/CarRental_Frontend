@@ -1,4 +1,4 @@
-export interface PaymentModel{
+export interface Payment{
     id : number,
     userId : number,
     creditCardId : number,

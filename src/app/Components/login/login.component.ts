@@ -39,8 +39,6 @@ export class LoginComponent implements OnInit {
       this.authService.login(model).subscribe(response => {
         this.localStorageService.setToken(response.data.token);
         this.authService.getUser()
-       
-       
         this.router.navigate(["cardetails"])
       })
     }

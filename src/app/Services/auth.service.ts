@@ -31,7 +31,7 @@ export class AuthService{
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "Auth/login", login);
   }
 
-
+  userId : number;
   user: User;
   token :string | null= ""
   decodedTokenKey: any;
@@ -55,7 +55,7 @@ export class AuthService{
 
         let tokenInfoId = Object.keys(decodedToken).filter(u => u.endsWith('/nameidentifier'))[0];
         let userId = Number(decodedToken[tokenInfoId]);
-
+        this.userId = userId;
         let claimInfo = Object.keys(decodedToken).filter(u => u.endsWith('/role'))[0];
         let roles = decodedToken[claimInfo];
       
