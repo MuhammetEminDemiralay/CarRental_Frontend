@@ -6,7 +6,7 @@
 <div>
     <label>My registered cards</label><br>
     <select (change)="getCardInfo($event)">
-        <option [value]="0">Kayıtlı kartların</option>
+        <option [value]="0">Save cards</option>
         <option [value]="saveCard.id" *ngFor="let saveCard of saveCards">{{saveCard.nameOnTheCard}}</option>
     </select>
 </div>

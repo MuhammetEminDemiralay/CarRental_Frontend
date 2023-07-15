@@ -36,3 +36,9 @@ h6{
     bottom: 62px;
     left: 40px;
 }
+
+#b{
+    border-style: solid;
+    width: 200px;
+    height: 200px;
+}

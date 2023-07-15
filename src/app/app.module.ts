@@ -23,6 +23,9 @@ import { CarAddComponent } from './Components/cardetails/car-add/car-add.compone
 import { UpdateCarComponent } from './Components/cardetails/update-car/update-car.component';
 import { RentcarComponent } from './Components/rentcar/rentcar.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 
@@ -61,7 +64,13 @@ export function tokenGetter() {
       config: {
         tokenGetter: tokenGetter,
       },
-    })
+      
+    }),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(
+      {positionClass : "toast-bottom-right"}
+    )
+
   ],
   providers: [],
   bootstrap: [AppComponent]

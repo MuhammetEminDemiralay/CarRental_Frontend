@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brand } from 'src/app/Models/brand';
 import { BrandModel } from 'src/app/Models/brandModel';
+import { AuthService } from 'src/app/Services/auth.service';
 import { BrandService } from 'src/app/Services/brand.service';
 import { BrandModelService } from 'src/app/Services/brandmodel.service';
 
@@ -13,7 +14,7 @@ import { BrandModelService } from 'src/app/Services/brandmodel.service';
 })
 export class BrandComponent implements OnInit {
   
-  constructor(private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
+  constructor(private authService : AuthService, private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
 
   ngOnInit(): void {
     this.getBrands();
@@ -70,7 +71,9 @@ export class BrandComponent implements OnInit {
     })
   }
   
-
+  isAdmin(){
+    return this.authService.isAdmin();
+  }
 
 
 

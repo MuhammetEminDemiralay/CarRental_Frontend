@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Color } from 'src/app/Models/color';
+import { AuthService } from 'src/app/Services/auth.service';
 import { ColorService } from 'src/app/Services/color.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ColorService } from 'src/app/Services/color.service';
 })
 export class ColorComponent implements OnInit{
   
-  constructor(private colorService : ColorService){}
+  constructor(private colorService : ColorService, private authService : AuthService){}
 
   ngOnInit(): void {
     this.getColors();
@@ -48,5 +49,4 @@ export class ColorComponent implements OnInit{
   getClearCurrentColor(){
     this.currentColor = this.unloadColor;
   }
-
 }

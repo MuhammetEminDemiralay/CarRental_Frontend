@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CreditCard } from 'src/app/Models/creditCard';
 import { Payment } from 'src/app/Models/payment';
 import { User } from 'src/app/Models/user';
@@ -15,7 +16,7 @@ import { PaymentService } from 'src/app/Services/payment.service';
 })
 export class PaymentComponent implements OnInit{
   
-  constructor(private activatedRoute : ActivatedRoute, private formBuilder : FormBuilder, private authService : AuthService, private creditCardService : CreditcardService, private paymentService : PaymentService){}
+  constructor(private toastrService : ToastrService ,private activatedRoute : ActivatedRoute, private formBuilder : FormBuilder, private authService : AuthService, private creditCardService : CreditcardService, private paymentService : PaymentService){}
 
   ngOnInit(): void {
     this.createCreditCardForms();
@@ -76,7 +77,7 @@ export class PaymentComponent implements OnInit{
 
   this.paymentService.addPay(model).subscribe(response => {
     console.log(response.message);
-    
+    this.toastrService.success("Payment Completed")
   })
 
  }

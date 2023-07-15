@@ -21,6 +21,8 @@
 #buttonDelete{
   border-style: solid;
   position: absolute;
+  width: 20px;
+  height: 30px;
   right: 15px;
   top: 10px;
   background-color: rgb(255, 255, 255);
@@ -42,5 +44,9 @@
   opacity: 100%;
 }
 
+#add{
+  position: absolute;
+  top: 100px;
+}
 
 
