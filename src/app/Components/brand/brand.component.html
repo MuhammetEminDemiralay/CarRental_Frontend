@@ -16,7 +16,7 @@
    <li class="list-group-item"
    (click)="getClearCurrentBrand()">
     <h5>Brands</h5>
-    <button id="buttonAdd" routerLink="/brandAdd">+</button>
+    <button id="buttonAdd"  data-bs-toggle="modal" data-bs-target="#addBrandModal">+</button>
    </li>
 
 
@@ -29,7 +29,7 @@
         {{brand.brandName}}
     </div>
     <div >
-        <button id="updateButton" routerLink="/brandUpdate">/</button>
+        <button id="updateButton" data-bs-toggle="modal" data-bs-target="#updateBrandModal">/</button>
     </div>
     <div>
         <button id="buttonDelete" (click)="deleteBrand(brand)">-</button>
@@ -39,3 +39,44 @@
 
 <br>
 <h5 *ngIf="currentBrand">{{currentBrand.brandName}} Selected</h5> 
+
+
+
+
+
+<div class="modal" tabindex="-1" id="addBrandModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a Brand</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <app-brand-add></app-brand-add>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" tabindex="-1" id="updateBrandModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update a Brand</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <app-brand-update [brandId]="brandId"></app-brand-update>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

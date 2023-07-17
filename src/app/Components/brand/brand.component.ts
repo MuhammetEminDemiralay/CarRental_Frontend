@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/Models/brand';
 import { BrandModel } from 'src/app/Models/brandModel';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -14,7 +14,7 @@ import { BrandModelService } from 'src/app/Services/brandmodel.service';
 })
 export class BrandComponent implements OnInit {
   
-  constructor(private authService : AuthService, private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
+  constructor(private activatedRoute : ActivatedRoute ,private authService : AuthService, private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
 
   ngOnInit(): void {
     this.getBrands();
@@ -24,6 +24,7 @@ export class BrandComponent implements OnInit {
   brands : Brand[] = [];
   carModels : BrandModel[] = [];
   currentBrand : Brand;
+  brandId: number;
   
   getBrands(){
     this.brandService.getBrands().subscribe(response => {
@@ -31,9 +32,9 @@ export class BrandComponent implements OnInit {
     })
   }
 
-
   setCurrentBrand(brand : Brand){
     this.currentBrand = brand;
+    this.brandId = brand.id;
   }
 
   getCurrentBrandClass(brand : Brand){
@@ -52,12 +53,10 @@ export class BrandComponent implements OnInit {
     }
   }
 
-
   unloadCurrentBrand : Brand;
   getClearCurrentBrand(){
     this.currentBrand = this.unloadCurrentBrand;
   }
-
 
   deleteBrand(brand : Brand){
     this.brandService.deleteBrand(brand).subscribe(response => {

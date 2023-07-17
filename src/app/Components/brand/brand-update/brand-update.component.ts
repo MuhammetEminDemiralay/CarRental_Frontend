@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Brand } from 'src/app/Models/brand';
 import { BrandService } from 'src/app/Services/brand.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { BrandService } from 'src/app/Services/brand.service';
 })
 export class BrandUpdateComponent implements OnInit{
   
-  constructor(private brandService : BrandService, private formBuilder : FormBuilder){}
+  constructor(private brandService : BrandService, private formBuilder : FormBuilder, private activatedRoute : ActivatedRoute){}
 
   ngOnInit(): void {
     this.creatUpdateForm();
@@ -17,20 +19,26 @@ export class BrandUpdateComponent implements OnInit{
 
 
   brandUpdateForm : FormGroup;
-
+  @Input() brandId : number;
 
   creatUpdateForm(){
     this.brandUpdateForm = this.formBuilder.group({
-      brandModel : ["", Validators.required],
-      model : ["", Validators.required]
+      brandName : ["", Validators.required]
     })
+    
   }
 
   updateBrand(){
-    let brandModel = Object.assign({}, this.brandUpdateForm.value);
-    this.brandService.updateBrand(brandModel).subscribe(response => {
-      window.location.reload();
-    })
+    if(this.brandUpdateForm.valid){
+      let brandModel = Object.assign({}, this.brandUpdateForm.value)
+      let model = <Brand>{
+        id : this.brandId,
+        brandName : brandModel.brandName
+      }
+      this.brandService.update(model).subscribe(response => {
+        window.location.reload();        
+      })
+    }
   }
 
 }
