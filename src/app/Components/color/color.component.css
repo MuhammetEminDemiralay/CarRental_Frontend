@@ -9,3 +9,29 @@ button{
     color: white;
     opacity: 80%;
 }
+
+#buttonDelete{
+    border-style: solid;
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    right: 15px;
+    top: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-style: italic;
+    color: rgb(0, 0, 0);
+    opacity: 100%;
+  }
+  
+  #buttonUpdate{
+    border-style: solid;
+    position: absolute;
+    right: 45px;
+    top: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-style: italic;
+    color: rgb(0, 0, 0);
+    opacity: 100%;
+  }

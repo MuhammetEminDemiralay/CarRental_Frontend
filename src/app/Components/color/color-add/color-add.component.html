@@ -1,10 +1,9 @@
 <form [formGroup]="colorAddForm">
     <div id="box1">
-        <h5 style="position: relative; top:15px; left: 10px;">Add a Color</h5>
-        <div id="box2">
-            <h6>Color :</h6>
+        <div>
+            <h6>Color</h6>
             <input style="border-radius: 4px; height: 35px;" type="text" formControlName="colorName">
         </div>
-        <button type="button" (click)="add()">Add</button>
+        <button type="button" (click)="add()" class="btn btn-outline-success">Add</button>
     </div>
 </form>

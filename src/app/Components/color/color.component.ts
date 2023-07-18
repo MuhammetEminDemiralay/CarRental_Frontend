@@ -16,6 +16,8 @@ export class ColorComponent implements OnInit{
     this.getColors();
   }
 
+  colorId : number;
+
   colors : Color[] = [];
   currentColor : Color;
 
@@ -35,6 +37,7 @@ export class ColorComponent implements OnInit{
 
   setCurrentColor(color : Color){
     this.currentColor = color;
+    this.colorId = color.id;
   }
 
   getAllColors(){
@@ -48,5 +51,11 @@ export class ColorComponent implements OnInit{
   unloadColor : Color;
   getClearCurrentColor(){
     this.currentColor = this.unloadColor;
+  }
+
+  deleteColor(color : Color){
+    this.colorService.deleteColor(color).subscribe(response => {
+      window.location.reload();
+    })
   }
 }

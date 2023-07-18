@@ -1,1 +1,7 @@
-<p>color-update works!</p>
+<form [formGroup]="updateColorForm">
+    <div>
+        <label>Color</label><br>
+        <input type="text" formControlName="colorName">
+    </div>
+    <button style="margin: 10px;" (click)="update()" class="btn btn-outline-success">Update</button>
+</form>

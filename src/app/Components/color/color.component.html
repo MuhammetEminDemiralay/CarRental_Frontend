@@ -3,7 +3,7 @@
     <li class="list-group-item"
     (click)="getClearCurrentColor()">
         <h5>Colors</h5>
-        <button routerLink="/colorAdd">+</button>
+        <button data-bs-toggle="modal" data-bs-target="#addColorModal">+</button>
     </li>
     
     <li 
@@ -11,6 +11,53 @@
     [class]="getCurrentColorClass(color)"
     routerLink="/cars/color/{{color.id}}"
     *ngFor="let color of colors">
+    <div>
         {{color.colorName}}
+    </div>
+    <div >
+        <button type="button" id="buttonUpdate" data-bs-toggle="modal" data-bs-target="#updateColorModal">/</button>
+    </div>
+    <div>
+        <button type="button" id="buttonDelete" (click)="deleteColor(color)">-</button>
+    </div>
     </li>
 </ul>
+
+
+
+<div class="modal" tabindex="-1" id="addColorModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a Color</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <app-color-add></app-color-add>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="modal" tabindex="-1" id="updateColorModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update a Color</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <app-color-update [colorId]="colorId"></app-color-update>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
