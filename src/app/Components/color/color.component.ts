@@ -58,4 +58,8 @@ export class ColorComponent implements OnInit{
       window.location.reload();
     })
   }
+
+  isAdmin(){
+    return this.authService.isAdmin();
+  }
 }

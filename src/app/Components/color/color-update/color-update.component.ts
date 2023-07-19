@@ -34,7 +34,8 @@ export class ColorUpdateComponent implements OnInit{
       colorName : model.colorName
     }
     
-    this.colorService.updateColor(colorModel).subscribe(response => {      
+    this.colorService.updateColor(colorModel).subscribe(response => {  
+      window.location.reload();    
     })
   }
 

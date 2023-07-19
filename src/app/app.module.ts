@@ -25,6 +25,7 @@ import { RentcarComponent } from './Components/rentcar/rentcar.component';
 import { PaymentComponent } from './Components/payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr';
+import { StatuComponent } from './Components/statu/statu.component';
 
 
 
@@ -52,7 +53,8 @@ export function tokenGetter() {
     CarAddComponent,
     UpdateCarComponent,
     RentcarComponent,
-    PaymentComponent   
+    PaymentComponent,
+    StatuComponent,
 
   ],
   imports: [

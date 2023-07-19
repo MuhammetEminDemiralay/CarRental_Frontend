@@ -22,7 +22,14 @@ export class CarDetailsComponent implements OnInit{
         this.getCarsDetailsBrand(params["brandId"]);
       }else if(params["colorId"]){
         this.getCarsDetailColor(params["colorId"])
-      }else{
+      }else if(params["statuId"]){
+        if(params["statuId"] == 1){
+          this.getCarDetails();
+        }else if(params["statuId"] == 2){
+          this.getCarDetailsStatu();
+        }
+      }
+        else{
         this.getCarDetails();
       }
     })
@@ -32,13 +39,18 @@ export class CarDetailsComponent implements OnInit{
   carDetails : CarDetail[] = [];
   imageUrl = "https://localhost:44313/";
   noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
-
+ 
   getCarDetails(){
     this.carDetailService.getCarsDetail().subscribe(response => {
-      this.carDetails = response.data;      
+      this.carDetails = response.data;    
     })
   }
 
+  getCarDetailsStatu(){
+   this.carDetailService.getCarsDetail().subscribe(response => {
+    this.carDetails = response.data.filter(p => p.isRentable === true)
+   }) 
+  }
 
   getCarsDetailsBrand(brandId : number){
     this.carDetailService.getCarDetailBrand(brandId).subscribe(response => {

@@ -4,6 +4,7 @@
     <li class="list-group-item text-center">{{carDetail.model}}</li>                                            
     <li class="list-group-item text-center">{{carDetail.modelYear}}</li>
     <li class="list-group-item text-center">{{carDetail.dailyPrice}} $</li>
+    <li class="list-group-item text-center">{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
     
     <div *ngIf="!isAdmin()">
       <button type="button" class="btn btn-outline-info" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button>

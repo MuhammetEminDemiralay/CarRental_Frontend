@@ -14,6 +14,7 @@ import { CarAddComponent } from './Components/cardetails/car-add/car-add.compone
 import { UpdateCarComponent } from './Components/cardetails/update-car/update-car.component';
 import { RentcarComponent } from './Components/rentcar/rentcar.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { StatuComponent } from './Components/statu/statu.component';
 
 
 const routes: Routes = [
@@ -30,8 +31,8 @@ const routes: Routes = [
   {path : "add", component : CarAddComponent},
   {path : "updatecar", component : UpdateCarComponent},
   {path : "rentcar", component : RentcarComponent},
-  {path : "payment", component : PaymentComponent}
-  
+  {path : "payment", component : PaymentComponent},
+  {path : "cars/statu/:statuId", component : CarDetailsComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,18 @@
+<div>
+    <ul class="list-group">
+
+        <li class="list-group-item">
+            <div>
+                <h5>Status</h5>
+            </div>
+        </li>
+
+        <li (click)="setCurrentStatu(statu)"
+            *ngFor="let statu of status"
+            [class]="getCurrentStatuClass(statu)"
+            routerLink="/cars/statu/{{statu.statuId}}">
+            {{statu.statuName}}
+        </li>
+
+    </ul>
+</div>

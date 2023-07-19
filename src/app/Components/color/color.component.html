@@ -3,7 +3,7 @@
     <li class="list-group-item"
     (click)="getClearCurrentColor()">
         <h5>Colors</h5>
-        <button data-bs-toggle="modal" data-bs-target="#addColorModal">+</button>
+        <button *ngIf="isAdmin()" data-bs-toggle="modal" data-bs-target="#addColorModal">+</button>
     </li>
     
     <li 
@@ -15,10 +15,10 @@
         {{color.colorName}}
     </div>
     <div >
-        <button type="button" id="buttonUpdate" data-bs-toggle="modal" data-bs-target="#updateColorModal">/</button>
+        <button *ngIf="isAdmin()" type="button" id="buttonUpdate" data-bs-toggle="modal" data-bs-target="#updateColorModal">/</button>
     </div>
     <div>
-        <button type="button" id="buttonDelete" (click)="deleteColor(color)">-</button>
+        <button *ngIf="isAdmin()" type="button" id="buttonDelete" (click)="deleteColor(color)">-</button>
     </div>
     </li>
 </ul>

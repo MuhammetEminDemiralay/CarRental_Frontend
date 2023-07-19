@@ -16,7 +16,7 @@
    <li class="list-group-item"
    (click)="getClearCurrentBrand()">
     <h5>Brands</h5>
-    <button id="buttonAdd"  data-bs-toggle="modal" data-bs-target="#addBrandModal">+</button>
+    <button *ngIf="isAdmin()" id="buttonAdd"  data-bs-toggle="modal" data-bs-target="#addBrandModal">+</button>
    </li>
 
 
@@ -29,10 +29,10 @@
         {{brand.brandName}}
     </div>
     <div >
-        <button type="button" id="updateButton" data-bs-toggle="modal" data-bs-target="#updateBrandModal">/</button>
+        <button *ngIf="isAdmin()" type="button" id="updateButton" data-bs-toggle="modal" data-bs-target="#updateBrandModal">/</button>
     </div>
     <div>
-        <button type="button" id="buttonDelete" (click)="deleteBrand(brand)">-</button>
+        <button *ngIf="isAdmin()" type="button" id="buttonDelete" (click)="deleteBrand(brand)">-</button>
     </div>
     </li>
 </ul>
