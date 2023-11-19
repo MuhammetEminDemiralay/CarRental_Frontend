@@ -1,8 +1,6 @@
-<div *ngFor="let carDetail of carDetails">
-        <div id="box1">
-          
-                <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
-               
+<div id="box1" *ngFor="let carDetail of carDetails">
+
+        <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
         <div id="box2">
             <h3>{{carDetail.brandName}} || {{carDetail.model}}</h3>
             <p>{{carDetail.brandDescription}}</p>
@@ -36,8 +34,6 @@
             </div> 
         </div>
 </div>
-
-
 
 <div class="modal" tabindex="-1" id="add">
     <div class="modal-dialog">

@@ -17,6 +17,7 @@ export class BrandComponent implements OnInit {
   constructor(private activatedRoute : ActivatedRoute ,private authService : AuthService, private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
 
   ngOnInit(): void {
+    this.authService.getUser();
     this.getBrands();
     this.getCarModels();
   }
@@ -30,6 +31,7 @@ export class BrandComponent implements OnInit {
     this.brandService.getBrands().subscribe(response => {
       this.brands = response.data;
     })
+
   }
 
   setCurrentBrand(brand : Brand){

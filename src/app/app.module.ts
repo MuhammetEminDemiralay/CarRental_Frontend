@@ -26,6 +26,9 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr';
 import { StatuComponent } from './Components/statu/statu.component';
+import { ImageComponent } from './Components/image/image.component';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -40,7 +43,6 @@ export function tokenGetter() {
     NaviComponent,
     BrandComponent,
     CarDetailsComponent,
-    HomeComponent,
     ColorComponent,
     MorecardetailsComponent,
     BrandUpdateComponent,
@@ -55,10 +57,13 @@ export function tokenGetter() {
     RentcarComponent,
     PaymentComponent,
     StatuComponent,
+    ImageComponent,
+    HomeComponent,
 
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

@@ -1,1 +1,14 @@
-<p>home works!</p>
+
+
+<ul>
+    <span *ngFor="let product of products">
+        <li *ngIf="product.cevap == true">{{product.productName}}</li>
+    </span>
+</ul>
+
+<ul>
+    <ng-container *ngFor="let product of products">
+        <li *ngIf="product.cevap == true">{{product.productName}}</li>
+    </ng-container>
+</ul>
+

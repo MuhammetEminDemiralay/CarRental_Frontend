@@ -13,5 +13,6 @@ export class NaviComponent {
   logout(){
     this.authService.logOut();
   }
-  
+ 
+
 }

@@ -8,6 +8,7 @@ import { CardetailService } from 'src/app/Services/cardetail.service';
 import { BrandModelService } from 'src/app/Services/brandmodel.service';
 import { ColorService } from 'src/app/Services/color.service';
 import { BrandModel } from 'src/app/Models/brandModel';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-car-add',
@@ -17,7 +18,7 @@ import { BrandModel } from 'src/app/Models/brandModel';
 export class CarAddComponent implements OnInit{
   
 
-  constructor(private router : Router ,private carDetailService : CardetailService ,private brandModelService : BrandModelService ,private brandService : BrandService, private colorService : ColorService, private formBuilder : FormBuilder){}
+  constructor(private toastrService : ToastrService, private router : Router ,private carDetailService : CardetailService ,private brandModelService : BrandModelService ,private brandService : BrandService, private colorService : ColorService, private formBuilder : FormBuilder){}
 
   ngOnInit(): void {
     this.getBrands();
@@ -66,7 +67,13 @@ export class CarAddComponent implements OnInit{
     if(this.carsForm.valid){
       let productModel = Object.assign({}, this.carsForm.value)
       this.carDetailService.add(productModel).subscribe(response => {
-      
+        this.toastrService.success("Car added")
+      }, responseError => {
+        if(responseError.error.Errors.length>0){
+         for (let i = 0; i < responseError.error.Errors.length; i++) {
+          this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası")
+         } 
+        } 
       })
     }
   }

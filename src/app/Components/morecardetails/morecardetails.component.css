@@ -3,32 +3,26 @@
     border-style: solid;
     border-width: 1px;
     width: 500px;
+    height: auto;
     margin: auto;
-    
 }
 
 #box2{
     border-style: solid;
+    height: 80px;
     border-width: 1px;
-    padding: 8px;
-    width: 500px;
+    width: inherit;
     text-indent: 10px;
 }
 
-#box3{
-    border-style: solid;
-    border-width: 0px;
-    width: 500px;
-    height: 70px;
-}
-
 img{
-    width: 500px;
+    width: inherit;
 }
 
 
 ul{
     border-style: solid;
+    height: 180px;
     list-style-type: none;
     border-width: 0px;
     border-color: rgb(195, 195, 195);
@@ -36,8 +30,9 @@ ul{
 
 li{
     border-style: solid;
+    width: inherit;
+    height: 30px;
     border-width: 1px;
-    padding: 8px;
     text-indent: 10px;
 }
 
@@ -60,5 +55,7 @@ button{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    
 }
+
+
 
 

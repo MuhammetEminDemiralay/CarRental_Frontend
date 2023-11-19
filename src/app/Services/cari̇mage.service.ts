@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../Models/listResponseModel';
 import { CarImage } from '../Models/carİmage';
 import { SingleResponseModel } from '../Models/singleResponseModel';
+import { Car } from '../Models/car';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,8 @@ export class CarİmageService {
   imageDelete(image : CarImage ) : Observable<SingleResponseModel<CarImage>>{
     return this.httpClient.post<SingleResponseModel<CarImage>>(this.apiUrl + "CarImage/delete", image);
   }
+
+
 
 
 

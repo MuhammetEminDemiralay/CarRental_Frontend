@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RentModel } from 'src/app/Models/rentModel';
@@ -20,24 +20,17 @@ export class RentcarComponent implements OnInit{
     this.createRentForms();
     this.getCarId();
     this.getCarPrice();
-    
   }
 
   minDate:string="";
   rentForms : FormGroup;
-  carId : number;
+  @Input() carId : number;
   
 
   createRentForms(){
     this.rentForms = this.formBuilder.group({
       rentDate : ["", Validators.required],
       returnDate : ["", Validators.required]
-    })
-  }
-
-  getCarId(){
-    this.activatedRoute.params.subscribe(params => {
-      this.carId = params["carId"];
     })
   }
 
@@ -48,9 +41,13 @@ export class RentcarComponent implements OnInit{
       this.dailyPrice= response.data.dailyPrice
     }
   )}
-  
-  
 
+  getCarId(){
+    this.activatedRoute.params.subscribe(params => {
+      this.carId = params["carId"];
+    })
+  }
+  
   rent(){
     let rentModel = Object.assign({}, this.rentForms.value);
 

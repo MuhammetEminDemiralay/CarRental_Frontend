@@ -32,6 +32,9 @@ export class MorecardetailsComponent implements OnInit{
   imageUrl = "https://localhost:44313/"
   noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
 
+
+
+  
   getMoreCarDetails(carId : CarDetail){
     this.carDetailService.getMoreCarDetails(carId).subscribe(response => {
       this.carDetails = response.data 
