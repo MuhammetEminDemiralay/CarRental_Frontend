@@ -3,8 +3,9 @@
     <ul *ngFor="let carDetail of carDetails" class="list-group list-group-flush card">
 
       <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
-      <li class="list-group-item text-center">{{carDetail.brandName}}  {{carDetail.model}}<br> {{carDetail.description}}</li>                                            
+      <li class="list-group-item text-center"><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> {{carDetail.description}}</li>                                            
       <li class="list-group-item text-center">{{carDetail.modelYear}}</li>
+      <li class="list-group-item text-center">{{carDetail.colorName}}</li>
       <li class="list-group-item text-center">{{carDetail.dailyPrice}} $</li>
       <li class="list-group-item text-center">{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
 

@@ -30,7 +30,7 @@
 }
 
 .card li{
-  padding:15px 5px;
+  padding:7px 5px;
   color: #3c3c3c;
 }
 
@@ -61,3 +61,6 @@
   font-size: 18px;
 }
 
+#model{
+  font-size: 22px;
+}

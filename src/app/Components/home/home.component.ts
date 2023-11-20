@@ -7,13 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent{
   
-  products = [
-    {productName : "A", cevap : true},
-    {productName : "B", cevap : false},
-    {productName : "C", cevap : true},
-    {productName : "D", cevap : false},
-    {productName : "E", cevap : true},
-    {productName : "F", cevap : false},
-  ]
 
+  myData : boolean = true;
+  animationDuration : number = 0
 }
