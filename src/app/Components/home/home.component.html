@@ -1,1 +1,3 @@
-<div [appCustom]="myData">MUHAMMET</div>
+<div *ngFor="let person of persons">
+    <div [appCustom]="person.id">{{person.name}}</div>
+</div>

@@ -6,8 +6,8 @@
       <li class="list-group-item text-center"><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> {{carDetail.description}}</li>                                            
       <li class="list-group-item text-center">{{carDetail.modelYear}}</li>
       <li class="list-group-item text-center">{{carDetail.colorName}}</li>
-      <li class="list-group-item text-center">{{carDetail.dailyPrice}} $</li>
-      <li class="list-group-item text-center">{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
+      <li class="list-group-item text-center">{{carDetail.dailyPrice | currency}}</li>
+      <li [appCustom]="carDetail.isRentable" class="list-group-item text-center">{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
 
       <div class="btn" *ngIf="!isAdmin()">
         <button id="btnDetails" type="button" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button>
@@ -15,7 +15,7 @@
   
       <div class="btn" *ngIf="isAdmin()">
         <button id="btnEdit" type="button" routerLink="/moreCarDetails/{{carDetail.id}}">Edit</button>
-      </div>
+      </div> 
     </ul>
   </div>
 </div>

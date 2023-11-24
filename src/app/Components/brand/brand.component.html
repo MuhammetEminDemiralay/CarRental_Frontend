@@ -1,82 +1,11 @@
-
-<ul class="list-group">
-    <div class="mt-1 mb-3">
-        <li 
-        (click)="getClearCurrentBrand()"
-        [class]="getAllBrandClass()"
-        routerLink="/cardetails">
-        <h5>All Cars</h5>
-        </li>
-    </div>
-</ul>
-
-
-<ul class="list-group">
-    
-   <li class="list-group-item"
-   (click)="getClearCurrentBrand()">
-    <h5>Brands</h5>
-    <button *ngIf="isAdmin()" id="buttonAdd"  data-bs-toggle="modal" data-bs-target="#addBrandModal">+</button>
-   </li>
-
-
-    <li  
-    (click) = "setCurrentBrand(brand)"    
-    routerLink = "/cars/brand/{{brand.id}}"
-    *ngFor = "let brand of brands"  
-    [class] = "getCurrentBrandClass(brand)">
-    <div>
+<div class="prapper">
+  <label class="all-cars">All Cars</label>
+  <div appDropDown>
+    Brand
+    <ul *ngFor="let brand of brands" class="brands">
+      <li class="brand">
         {{brand.brandName}}
-    </div>
-    <div >
-        <button *ngIf="isAdmin()" type="button" id="updateButton" data-bs-toggle="modal" data-bs-target="#updateBrandModal">/</button>
-    </div>
-    <div>
-        <button *ngIf="isAdmin()" type="button" id="buttonDelete" (click)="deleteBrand(brand)">-</button>
-    </div>
-    </li>
-</ul>
-
-<br>
-<h5 *ngIf="currentBrand">{{currentBrand.brandName}} Selected</h5> 
-
-
-
-
-
-<div class="modal" tabindex="-1" id="addBrandModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Add a Brand</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <app-brand-add></app-brand-add>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
-
-
-  <div class="modal" tabindex="-1" id="updateBrandModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Update a Brand</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <app-brand-update [brandId]="brandId"></app-brand-update>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
