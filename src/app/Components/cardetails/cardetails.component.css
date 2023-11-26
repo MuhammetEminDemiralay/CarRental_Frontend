@@ -1,6 +1,7 @@
 *{
   padding: 0;
   margin: 0;
+  font-weight: 500;
 }
 
 .container{
@@ -18,7 +19,7 @@
 .cards .card{
   position: relative;
   max-width: 250px;
-  border: 1px solid black;
+  border: 5px solid #fff;
   border: thin solid rgb(194, 194, 194);
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
@@ -41,17 +42,23 @@
   padding: 15px 50px;
 }
 
-#btnDetails{
+#btn-details{
   padding: 5px;
   width: 100%;
   border: none;
-  background-color: #0d3b66;
+  outline: none;
+  background-color: #155888;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   color: #fff;
   font-size: 18px;
+  transition: all 0.2s linear;
 }
 
-#btnEdit{
+#btn-details:hover{
+  background-color: #003566;
+}
+
+#btn-edit{
   padding: 5px;
   width: 100%;
   border: none;
@@ -70,7 +77,6 @@
   .container .cards{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
     gap:15px ;
   }
 }

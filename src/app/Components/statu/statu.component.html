@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="status">
+      <div class="text" appDropDown>
+        <span>Statu</span>
+        <i class='bx bx-chevron-down arrow'></i>
+      </div>
+      <div id="statu-box">
+        <ul class="statu" 
+            *ngFor="let statu of status"  
+            (click)="setCurrentStatu(statu)"
+            [class]="getCurrentStatuClass(statu)"
+            routerLink="/cars/statu/{{statu.statuId}}">
+            <li>
+                {{statu.statuName}}
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+

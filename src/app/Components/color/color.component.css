@@ -1,37 +1,62 @@
-button{
-    border-style: solid;
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    background-color: black;
-    border-radius: 5px;
-    font-style: italic;
-    color: white;
-    opacity: 80%;
+*{
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
 }
 
-#buttonDelete{
-    border-style: solid;
-    position: absolute;
-    width: 20px;
-    height: 30px;
-    right: 15px;
-    top: 10px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    font-style: italic;
-    color: rgb(0, 0, 0);
-    opacity: 100%;
-  }
-  
-  #buttonUpdate{
-    border-style: solid;
-    position: absolute;
-    right: 45px;
-    top: 10px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    font-style: italic;
-    color: rgb(0, 0, 0);
-    opacity: 100%;
-  }
+.container{
+  display: flex;
+  flex-direction: column;
+  text-indent: 15px;
+  row-gap: 10px;
+}
+
+
+#color-box .color{
+  border: thin solid black;
+  list-style-type: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: black;
+}
+
+.colors .text{
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
+}
+
+.colors .text:hover,
+#color-box .color:hover{
+  background-color: #124e78;
+  color: #fff;
+}
+
+.visible{
+  display: none;
+}
+
+.active{
+  background-color: #124e78;
+  color: #fff;
+}
+
+.not-active{
+  background-color: none;
+}
+
+.colors .text,
+#color-box .color{
+  padding: 10px 5px;
+  border-radius: 2px;
+  transition: all 0.2s linear;
+}
+
+.text .arrow{
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  font-size: 25px;
+}

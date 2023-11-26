@@ -40,14 +40,6 @@ export class ColorComponent implements OnInit{
     this.colorId = color.id;
   }
 
-  getAllColors(){
-    if(!this.currentColor){
-      return  "list-group-item active"
-    }else{
-      return "list-group-item"
-    }
-  }
-
   unloadColor : Color;
   getClearCurrentColor(){
     this.currentColor = this.unloadColor;

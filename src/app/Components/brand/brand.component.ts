@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/Models/brand';
 import { BrandModel } from 'src/app/Models/brandModel';
@@ -14,7 +14,7 @@ import { BrandModelService } from 'src/app/Services/brandmodel.service';
 })
 export class BrandComponent implements OnInit {
   
-  constructor(private activatedRoute : ActivatedRoute ,private authService : AuthService, private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
+  constructor(private elementRef : ElementRef, private rederer : Renderer2 ,private activatedRoute : ActivatedRoute ,private authService : AuthService, private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
 
   ngOnInit(): void {
     this.authService.getUser();
@@ -28,10 +28,9 @@ export class BrandComponent implements OnInit {
   brandId: number;
   
   getBrands(){
-    this.brandService.getBrands().subscribe(response => {
+    this.brandService.getAllBrands().subscribe(response => {
       this.brands = response.data;
     })
-
   }
 
   setCurrentBrand(brand : Brand){
@@ -76,6 +75,14 @@ export class BrandComponent implements OnInit {
     return this.authService.isAdmin();
   }
 
+  brandActive(e : any){
+    if(e.target.nextElementSibling.classList.contains('active')){
+      this.rederer.removeClass(e.target.nextElementSibling, "active")
+    }else{
+      this.rederer.addClass(e.target.nextElementSibling, "active")
+    }
+    
+  }
 
 
 

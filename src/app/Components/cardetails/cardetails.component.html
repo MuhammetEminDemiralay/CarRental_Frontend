@@ -3,18 +3,18 @@
     <ul *ngFor="let carDetail of carDetails" class="list-group list-group-flush card">
 
       <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
-      <li class="list-group-item text-center"><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> {{carDetail.description}}</li>                                            
+      <li class="list-group-item text-center"><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>                                            
       <li class="list-group-item text-center">{{carDetail.modelYear}}</li>
       <li class="list-group-item text-center">{{carDetail.colorName}}</li>
       <li class="list-group-item text-center">{{carDetail.dailyPrice | currency}}</li>
       <li [appCustom]="carDetail.isRentable" class="list-group-item text-center">{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
 
       <div class="btn" *ngIf="!isAdmin()">
-        <button id="btnDetails" type="button" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button>
+        <button id="btn-details" type="button" routerLink="/moreCarDetails/{{carDetail.id}}">Details</button>
       </div>
   
       <div class="btn" *ngIf="isAdmin()">
-        <button id="btnEdit" type="button" routerLink="/moreCarDetails/{{carDetail.id}}">Edit</button>
+        <button id="btn-edit" type="button" routerLink="/moreCarDetails/{{carDetail.id}}">Edit</button>
       </div> 
     </ul>
   </div>

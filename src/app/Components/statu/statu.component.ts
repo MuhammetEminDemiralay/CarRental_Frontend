@@ -22,12 +22,7 @@ export class StatuComponent implements OnInit{
   ]
 
   getCurrentStatuClass(statu : any){
-    if(this.currentStatu == statu){
-      return "list-group-item active"
-    }else{
-      return "list-group-item"
-    }
-    
+      return this.currentStatu == statu ? "active" : "not-active"
   }
 
   setCurrentStatu(statu : any){

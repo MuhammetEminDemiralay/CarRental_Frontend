@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  .container{
+    display: flex;
+    flex-direction: column;
+    text-indent: 15px;
+    row-gap: 10px;
+  }
+  
+  #statu-box .statu{
+    border: thin solid black;
+    list-style-type: none;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+  }
+  
+  .status .text{
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+  }
+
+  .status .text:hover,
+  #statu-box .statu:hover{
+    background-color: #124e78;
+    color: #fff;
+  }
+  
+
+  .status .statu{
+    cursor: pointer;
+  }
+  
+  .visible{
+    display: none;
+  }
+
+  .active{
+    background-color: #124e78;
+    color: #fff;
+  }
+
+  .not-active{
+    background-color: none;
+  }
+
+.status .text,
+#statu-box .statu{
+  padding: 10px 5px;
+  border-radius: 2px;
+  transition: all 0.2s linear;
+}
+
+.text .arrow{
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  font-size: 25px;
+}

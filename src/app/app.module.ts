@@ -29,7 +29,7 @@ import { StatuComponent } from './Components/statu/statu.component';
 import { ImageComponent } from './Components/image/image.component';
 import { CommonModule } from '@angular/common';
 import { CustomDirective } from './custom.directive';
-import { DropDownDirective } from './Components/drop-down.directive';
+import { DropDownDirective } from './Directives/drop-down.directive';
 
 
 

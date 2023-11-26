@@ -1,40 +1,68 @@
 *{
   padding: 0;
   margin: 0;
+  font-weight: 500;
 }
 
-.prapper{
+.container{
   display: flex;
   flex-direction: column;
-
+  text-indent: 15px;
+  row-gap: 10px;
 }
 
-.all-cars{
-  width: 100%;
-  padding: 10px 0 10px 17px;
-  font-size: 18px;
-  font-weight: 600;
-  outline: none;
+.container .all-cars{
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+#brand-box .brand{
   border: thin solid black;
-  margin-bottom: 10px;
+  list-style-type: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: black;
 }
 
-.prapper .brands{
-  display: flex;
-  align-items: center;
-  width: 100%;
+.brands .text{
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
 }
 
-.brands .brand{
-  width: 100%;
-  padding: 10px 0 10px 17px;
-  list-style-type:none;
-  font-size: 18px;
-  font-weight: 600;
-  outline: none;
-  border: thin solid black;
+.container .all-cars:hover,
+#brand-box .brand:hover,
+.brands .text:hover{
+  background-color: #124e78;
+  color: #fff;
 }
-
-.visibility .brands{
+.visible{
   display: none;
+}
+
+.active{
+  background-color: #124e78;
+  color: black;
+}
+
+.not-active{
+  background-color: none;
+}
+
+.brands .text,
+.container .all-cars,
+#brand-box .brand{
+  padding: 10px 5px;
+  border-radius: 2px;
+  transition: all 0.2s linear;
+}
+
+.text .arrow{
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  font-size: 25px;
 }

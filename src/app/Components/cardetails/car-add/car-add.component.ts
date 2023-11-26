@@ -34,7 +34,7 @@ export class CarAddComponent implements OnInit{
   carsForm : FormGroup;
 
   getBrands(){
-    this.brandService.getBrands().subscribe(response => {
+    this.brandService.getAllBrands().subscribe(response => {
       this.brands = response.data;
     })
   }

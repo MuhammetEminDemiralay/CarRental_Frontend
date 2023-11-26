@@ -1,0 +1,9 @@
+.container{
+    background-color: #2a9d8f;
+    box-shadow: 0 5px 20 px rgba(0, 0, 0, 0.5);
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
