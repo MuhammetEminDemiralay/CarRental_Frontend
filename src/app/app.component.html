@@ -1,17 +1,27 @@
-
 <div class="container">
-        <app-navi></app-navi>
-    <hr>
-    <div class="row p-0 m-0">
-        <div class="col-md-3 col-lg-3 box" style=" margin: 0px; padding: 0px;">
-                <app-brand></app-brand>
-                <app-color></app-color>
-                <app-statu></app-statu>
+    <div class="row">
+        <div class="col-12">
+            <app-header></app-header>
         </div>
-        <div class="col-md-9" style=" margin: 0px; padding: 0px;">
+        <div class="col-12">
+            <app-navi></app-navi>
+        </div>
+        <div class="col-md-3">
+            <div class="mt-3">
+                    <app-brand></app-brand>
+            </div>    
+            <div class="mt-3">
+                <app-color></app-color>
+            </div>
+            <div class="mt-3">
+                <app-statu></app-statu>
+            </div>
+        </div>
+        <div class="col-md-9 mt-3">
             <router-outlet></router-outlet>
-        </div> 
+        </div>
+        <div class="col-12">
+            <app-footer></app-footer>
+        </div>
     </div>
-    <hr style="margin-top: 200px;">
 </div>
-

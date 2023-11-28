@@ -21,6 +21,7 @@ export class MorecardetailsComponent implements OnInit{
    this.activatedRoute.params.subscribe(params =>{
     if(params["carId"]){
       this.getMoreCarDetails(params["carId"])
+      this.getCarImagesByCarId(params["carId"])
     }
    })
    this.authService.getUser();
@@ -31,13 +32,21 @@ export class MorecardetailsComponent implements OnInit{
   carDetails : CarDetail[] = [];
   imageUrl = "https://localhost:44313/"
   noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
-
+  carImagePaths: CarImage[] = [];
 
 
   
   getMoreCarDetails(carId : CarDetail){
     this.carDetailService.getMoreCarDetails(carId).subscribe(response => {
       this.carDetails = response.data 
+    })
+  }
+
+  getCarImagesByCarId(carId : number) {
+    this.carImageService.getImagesByCarId(carId).subscribe(response => {
+      this.carImagePaths = response.data.filter(p => p.imagePath);
+      console.log(this.carImagePaths);
+      
     })
   }
 
@@ -51,6 +60,8 @@ export class MorecardetailsComponent implements OnInit{
     })
   }
 
+
+
   rentCarId(){
     this.activatedRoute.params.subscribe(params => {
       let carId = params["carId"];
@@ -59,6 +70,7 @@ export class MorecardetailsComponent implements OnInit{
   }
 
   delete(){
+    window.confirm("Eminmisin")
     this.carDetailService.delete(this.car).subscribe(response => {
     this.router.navigate(["cardetails"])      
     })

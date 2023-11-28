@@ -1,11 +1,7 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
-.container{
+.wrapper{
     width: 100%;
     height: 100%;
-    border: 1px solid black;
-    padding: 20px;
+    height: 100px;
+    outline: none;
+    background-color: #ef233c;
 }

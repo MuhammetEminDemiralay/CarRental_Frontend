@@ -28,8 +28,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { StatuComponent } from './Components/statu/statu.component';
 import { ImageComponent } from './Components/image/image.component';
 import { CommonModule } from '@angular/common';
-import { CustomDirective } from './custom.directive';
+import { CustomDirective } from './Directives/custom.directive';
 import { DropDownDirective } from './Directives/drop-down.directive';
+import { HeaderComponent } from './Components/header/header.component';
 
 
 
@@ -62,7 +63,8 @@ export function tokenGetter() {
     ImageComponent,
     HomeComponent,
     CustomDirective,
-    DropDownDirective
+    DropDownDirective,
+    HeaderComponent
 
   ],
   imports: [

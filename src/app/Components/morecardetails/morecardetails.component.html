@@ -1,22 +1,43 @@
-<div id="box1" *ngFor="let carDetail of carDetails">
 
-    <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
-    <div id="box2">
-        <h3>{{carDetail.brandName}} || {{carDetail.model}}</h3>
-        <p>{{carDetail.brandDescription}}</p>
-    </div>               
 
-    <ul class="list-group-item">
-        <li><b>Color : </b>{{carDetail.colorName}}</li>
-        <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
-        <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
-        <li><b>Color : </b>{{carDetail.colorName}}</li>
-        <li><b>Description : </b>{{carDetail.description}}</li>
-        <li><b>Status : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
+<div class="section">
+  <div id="carouselExampleAutoplaying" class="carousel slide wrapper" data-bs-ride="carousel">
+      <div class="carousel-inner image-box" *ngFor="let carDetail of carDetails">
+        <div class="carousel-item active car-images" *ngFor="let image of carImagePaths">
+          <img class="image d-block w-100" [src]="image.imagePath.length !== 0 ? imageUrl + image.imagePath : imageUrl + noPhotoUrl">
+        </div>  
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  <div class="card-content" *ngFor="let carDetail of carDetails">
+      <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
+      <li><b>Color : </b>{{carDetail.colorName}}</li>
+      <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
+      <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
+      <li [appCustom]="carDetail.isRentable"><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
+      
+      <div class="btn-box">
+        
+        <!-- <button class="btn-user" (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button> -->
+        <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
+        <button (click)="update()"><i class='bx bxs-pencil'></i></button>
+        <button (click)="delete()"><i class='bx bx-minus'></i></button>
 
-    </ul>   
+      </div>
+      <!-- <div *ngIf="isAuthenticated()">
+        <div *ngIf="!isAdmin()"> -->
+        <!-- </div> 
+      </div> -->
 
-    <div *ngIf="isAdmin()">
+      
+      <div *ngIf="isAdmin()">
         <div>
             <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#add">Add</button>
         </div>
@@ -26,35 +47,28 @@
         <div>
             <button class="btn btn-outline-primary" (click)="delete()">Delete</button>
         </div>
-    </div>
+      </div>
 
-    <div *ngIf="isAuthenticated()">
-        <div *ngIf="!isAdmin()">
-            <button class="btn btn-outline-primary" (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
-        </div> 
-    </div>
-</div>
-
-<div class="modal" tabindex="-1" id="add">
-<div class="modal-dialog">
-  <div class="modal-content" style="width: 570px;">
-    <div class="modal-header">
-      <h5 class="modal-title">Add new car</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <app-car-add></app-car-add>
-    </div>
   </div>
+
+
+
+
 </div>
-</div>
 
 
 
 
 
-
-
-
-
-
+<!-- <div class="container" *ngFor="let carDetail of carDetails">
+    <div class="card-image">
+        <img class="car-image" [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
+    </div>
+    <div class="card-text">
+        <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
+        <li><b>Color : </b>{{carDetail.colorName}}</li>
+        <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
+        <li><b>Model Year : </b>{{carDetail.dailyPrice}}</li>
+        <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
+    </div>
+</div> -->
