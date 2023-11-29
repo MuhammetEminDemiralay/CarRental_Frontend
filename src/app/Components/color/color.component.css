@@ -27,11 +27,16 @@
   background-color: #fff;
 }
 
+
+#color-box .color:hover,
+#color-box .color:hover i,
+.text:hover i,
 .colors .text:hover,
 #color-box .color:hover{
   background-color: #124e78;
   color: #fff;
 }
+
 
 .visible{
   display: none;
@@ -59,4 +64,29 @@
   right: 2%;
   transform: translateY(-50%);
   font-size: 25px;
+}
+
+.text i,
+.color .pen,
+.color .minus{
+  position: absolute;
+  font-size: 22px;
+  color: black;
+  font-weight: 500;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.color .pen{
+  right: 45px;
+  padding: 0;
+  margin: 0;
+}
+
+.color .minus{
+  right: 10px;
+}
+
+.text i{
+  right: 10px;
 }

@@ -6,46 +6,24 @@
   <div class="brands">
     <div class="text" appDropDown>
       <span>Brand</span>
-      <i class='bx bx-chevron-down arrow'></i>
+      <i *ngIf="!isAdmin()" class='bx bx-chevron-down arrow'></i>
+      <i appStoppropagation *ngIf="isAdmin()" class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addBrandModal"></i>
     </div>
     <div id="brand-box">
       <ul class="brand"
         *ngFor="let brand of brands"
         (click)="setCurrentBrand(brand)"
         [class]="getCurrentBrandClass(brand)"
-        routerLink="/cars/color/{{brand.id}}">
+        routerLink="/cars/brand/{{brand.id}}">
         <li>
           {{brand.brandName}}
         </li>
+        <i *ngIf="isAdmin()" appStoppropagation data-bs-toggle="modal" data-bs-target="#updateBrandModal" class='bx bxs-pencil pen'></i>
+        <i *ngIf="isAdmin()" appStoppropagation (click)="deleteBrand(brand)" class='bx bx-minus minus'></i>
       </ul>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

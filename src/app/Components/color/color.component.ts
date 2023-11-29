@@ -46,9 +46,11 @@ export class ColorComponent implements OnInit{
   }
 
   deleteColor(color : Color){
+    if(window.confirm("Are you sure...")){
     this.colorService.deleteColor(color).subscribe(response => {
       window.location.reload();
     })
+  }
   }
 
   isAdmin(){

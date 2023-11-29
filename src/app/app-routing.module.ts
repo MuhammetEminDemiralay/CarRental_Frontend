@@ -15,12 +15,12 @@ import { UpdateCarComponent } from './Components/cardetails/update-car/update-ca
 import { RentcarComponent } from './Components/rentcar/rentcar.component';
 import { PaymentComponent } from './Components/payment/payment.component';
 import { StatuComponent } from './Components/statu/statu.component';
-import { ImageComponent } from './Components/image/image.component';
 import { HomeComponent } from './Components/home/home.component';
+import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
 
 
 const routes: Routes = [
-  {path : "", component : CarDetailsComponent},
+  {path : "", component : HomeComponent},
   {path : "cardetails", component : CarDetailsComponent},
   {path : "cars/brand/:brandId", component : CarDetailsComponent},
   {path : "cars/color/:colorId", component : CarDetailsComponent},
@@ -35,10 +35,8 @@ const routes: Routes = [
   {path : "rentcar", component : RentcarComponent},
   {path : "payment", component : PaymentComponent},
   {path : "cars/statu/:statuId", component : CarDetailsComponent},
-  {path : "image", component : ImageComponent},
-  {path : "home", component : HomeComponent}
-  
-  
+  {path : "home", component : HomeComponent},  
+  {path : "**", component : ComingsoonComponent}
 ];
 
 @NgModule({

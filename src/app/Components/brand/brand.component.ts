@@ -60,9 +60,11 @@ export class BrandComponent implements OnInit {
   }
 
   deleteBrand(brand : Brand){
-    this.brandService.deleteBrand(brand).subscribe(response => {
-      window.location.reload();
-    })
+    if(window.confirm("Are you sure...")){
+      this.brandService.deleteBrand(brand).subscribe(response => {
+        window.location.reload();
+      })
+    }
   }
   
   getCarModels(){

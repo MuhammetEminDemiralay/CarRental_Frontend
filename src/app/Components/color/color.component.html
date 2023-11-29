@@ -2,7 +2,9 @@
     <div class="colors">
       <div class="text" appDropDown>
         <span>Color</span>
-        <i class='bx bx-chevron-down arrow'></i>
+        <i *ngIf="!isAdmin()"  class='bx bx-chevron-down arrow'></i>
+        <i appStoppropagation *ngIf="isAdmin()" class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addBrandModal"></i>
+
       </div>
       <div id="color-box">
         <ul class="color" 
@@ -11,7 +13,51 @@
           [class]="getCurrentColorClass(color)"
           routerLink="/cars/color/{{color.id}}">
           <li>{{color.colorName}}</li>
+          <i *ngIf="isAdmin()" appStoppropagation data-bs-toggle="modal" data-bs-target="#updateColorModal" class='bx bxs-pencil pen'></i>
+          <i *ngIf="isAdmin()" appStoppropagation (click)="deleteColor(color)" class='bx bx-minus minus'></i>
         </ul>
       </div>
     </div>
   </div>
+
+
+
+
+
+  
+<div class="modal" tabindex="-1" id="addColorModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a Color</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <app-color-add></app-color-add>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="modal" tabindex="-1" id="updateColorModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update a Color</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <app-color-update [colorId]="colorId"></app-color-update>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

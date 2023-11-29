@@ -70,10 +70,11 @@ export class MorecardetailsComponent implements OnInit{
   }
 
   delete(){
-    window.confirm("Eminmisin")
-    this.carDetailService.delete(this.car).subscribe(response => {
-    this.router.navigate(["cardetails"])      
-    })
+    if(window.confirm("Are you sure")){
+      this.carDetailService.delete(this.car).subscribe(response => {
+        this.router.navigate(["cardetails"])      
+        })
+    }
   }
 
   update(){

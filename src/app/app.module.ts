@@ -26,11 +26,12 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr';
 import { StatuComponent } from './Components/statu/statu.component';
-import { ImageComponent } from './Components/image/image.component';
 import { CommonModule } from '@angular/common';
 import { CustomDirective } from './Directives/custom.directive';
 import { DropDownDirective } from './Directives/drop-down.directive';
 import { HeaderComponent } from './Components/header/header.component';
+import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
+import { StoppropagationDirective } from './Directives/stoppropagation.directive';
 
 
 
@@ -60,11 +61,12 @@ export function tokenGetter() {
     RentcarComponent,
     PaymentComponent,
     StatuComponent,
-    ImageComponent,
     HomeComponent,
     CustomDirective,
     DropDownDirective,
-    HeaderComponent
+    HeaderComponent,
+    ComingsoonComponent,
+    StoppropagationDirective
 
   ],
   imports: [

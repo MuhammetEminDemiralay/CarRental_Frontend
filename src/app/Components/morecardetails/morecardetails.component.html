@@ -16,44 +16,47 @@
         <span class="visually-hidden">Next</span>
       </button>
   </div>
-  <div class="card-content" *ngFor="let carDetail of carDetails">
+  <div class="card-content">
+    <div class="content"  *ngFor="let carDetail of carDetails">
       <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
       <li><b>Color : </b>{{carDetail.colorName}}</li>
       <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
       <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
-      <li [appCustom]="carDetail.isRentable"><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
+      <li><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
       
       <div class="btn-box">
-        
-        <!-- <button class="btn-user" (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button> -->
-        <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
-        <button (click)="update()"><i class='bx bxs-pencil'></i></button>
-        <button (click)="delete()"><i class='bx bx-minus'></i></button>
-
-      </div>
-      <!-- <div *ngIf="isAuthenticated()">
-        <div *ngIf="!isAdmin()"> -->
-        <!-- </div> 
-      </div> -->
-
-      
-      <div *ngIf="isAdmin()">
-        <div>
-            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#add">Add</button>
+        <div class="user">
+          <button class="btn-user" (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
         </div>
-        <div>
-            <button class="btn btn-outline-primary" (click)="update()">Update</button>
-        </div>
-        <div>
-            <button class="btn btn-outline-primary" (click)="delete()">Delete</button>
+        <div class="admin">          
+          <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
+          <button (click)="update()"><i class='bx bxs-pencil'></i></button>
+          <button (click)="delete()"><i class='bx bx-minus'></i></button>
         </div>
       </div>
-
+    </div>
   </div>
+</div>
 
 
 
 
+<div class="modal" tabindex="-1" id="add">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a Brand</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <app-car-add></app-car-add>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 

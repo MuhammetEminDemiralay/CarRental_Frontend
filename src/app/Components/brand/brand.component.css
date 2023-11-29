@@ -15,6 +15,7 @@
   border: 1px solid black;
   cursor: pointer;
   background-color: #fff;
+  position: relative;
 }
 
 
@@ -24,6 +25,7 @@
   cursor: pointer;
   background-color: #fff;
   color: black;
+  position: relative;
 }
 
 .brands .text{
@@ -36,6 +38,8 @@
 
 .container .all-cars:hover,
 #brand-box .brand:hover,
+#brand-box .brand:hover i,
+.text:hover i,
 .brands .text:hover{
   background-color: #124e78;
   color: #fff;
@@ -64,7 +68,36 @@
 .text .arrow{
   position: absolute;
   top: 50%;
-  right: 2%;
+  right: 3%;
   transform: translateY(-50%);
   font-size: 25px;
 }
+
+
+.all-cars .plus,
+.text i,
+.brand .pen,
+.brand .minus{
+  position: absolute;
+  font-size: 22px;
+  color: black;
+  font-weight: 500;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.brand .pen{
+  right: 45px;
+  padding: 0;
+  margin: 0;
+}
+
+.brand .minus{
+  right: 10px;
+}
+
+.text i{
+  right: 10px;
+}
+
+
