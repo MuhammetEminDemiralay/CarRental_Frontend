@@ -19,6 +19,7 @@
 .cards .card{
   position: relative;
   max-width: 250px;
+  width: 100%;
   border: 5px solid #fff;
   border: thin solid rgb(194, 194, 194);
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);

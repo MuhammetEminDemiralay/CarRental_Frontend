@@ -25,10 +25,10 @@
       <li><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
       
       <div class="btn-box">
-        <div class="user">
-          <button class="btn-user" (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
+        <div class="user" *ngIf="!isAuthenticated()">
+          <button (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
         </div>
-        <div class="admin">          
+        <div class="admin" *ngIf="isAdmin()">          
           <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
           <button (click)="update()"><i class='bx bxs-pencil'></i></button>
           <button (click)="delete()"><i class='bx bx-minus'></i></button>
@@ -61,17 +61,3 @@
 
 
 
-
-
-<!-- <div class="container" *ngFor="let carDetail of carDetails">
-    <div class="card-image">
-        <img class="car-image" [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
-    </div>
-    <div class="card-text">
-        <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
-        <li><b>Color : </b>{{carDetail.colorName}}</li>
-        <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
-        <li><b>Model Year : </b>{{carDetail.dailyPrice}}</li>
-        <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
-    </div>
-</div> -->

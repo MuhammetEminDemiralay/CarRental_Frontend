@@ -1,16 +1,18 @@
 
-<form [formGroup]="rentForms">
-<div id="box1">
-    <div>
-        <label>Rent Date</label>
-        <input type="date" min={{minDate}} formControlName="rentDate">
-    </div>
-    
-    <div>
-        <label>Return Date</label>
-        <input type="date" min={{minDate}} formControlName="returnDate">
-    </div>
-
-    <button (click)="rent()" class="btn-outline-info" routerLink="/payment">Rent</button>
+<div class="wrapper">
+    <form [formGroup]="rentForm" class="form">
+        <div class="section">
+            <div class="box">
+                <label class="text">Rent Date</label>
+                <input type="date" formControlName="rentDate">
+            </div>
+            <div class="box">
+                <label class="text">Return Date</label>
+                <input type="date" formControlName="returnDate">
+            </div>
+            <div class="box">
+                <button (click)="rent()" class="btn">Rent</button>
+            </div>
+        </div>
+    </form>
 </div>
-</form>

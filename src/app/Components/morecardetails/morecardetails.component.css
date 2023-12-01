@@ -55,27 +55,32 @@
     font-size: 19px;
 }
 
-.btns{
+.btn-box{
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 10px;
-    border: thin solid #343434;
-    height: 40px;
-    padding: 25px;
+    padding: 10px;
 }
 
-.btns-admin button{
-    width: 100px;
-    font-size: 18px;
-    border: none;
+.btn-box .user button,
+.btn-box .admin button{
+    padding: 5px 15px;
+    cursor: pointer;
     outline: none;
-    transition: all 0.3s linear;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border: thin solid rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.2s linear;
 }
 
-.btns-admin button:hover{
+.btn-box .user button:hover,
+.btn-box .admin button:hover{
     background-color: #124e78;
     color: #fff;
+}
+
+.btn-box .admin button{
+    margin: 0 10px;
 }

@@ -1,49 +1,42 @@
-
-
-
-<div id="box1">
-
-<div>
-    <label>My registered cards</label><br>
-    <select (change)="getCardInfo($event)">
-        <option [value]="0">Save cards</option>
-        <option [value]="saveCard.id" *ngFor="let saveCard of saveCards">{{saveCard.nameOnTheCard}}</option>
-    </select>
-</div>
-
-<form [formGroup]="creditCardForms">
-   
-        <div>
-            <label>Card Number</label><br>
-            <input type="number" formControlName="cardNumber">
+<div class="wrapper">
+    <form [formGroup]="creditCardForms" class="form">
+        <div class="section">
+            <div class="box">
+                <label class="text">My registered cards</label>
+                <select (change)="getCardInfo($event)">
+                    <option [value]="0">Save cards</option>
+                    <option [value]="saveCard.id" *ngFor="let saveCard of saveCards">{{saveCard.nameOnTheCard}}</option>
+                </select>
+            </div>
+            <div class="box">
+                <label class="text">Card Number</label>
+                <input type="number" formControlName="cardNumber">
+            </div>
+            <div class="box">
+                <label class="text">Date Month</label>
+                <input type="number" formControlName="dateMonth">
+            </div>
+            <div class="box">
+                <label class="text">Date Year</label>
+                <input type="number" formControlName="dateYear">
+            </div>
+            <div class="box">
+                <label class="text">Name on the card</label>
+                <input type="text" formControlName="nameOnTheCard">
+            </div>
+            <div class="box">
+                <label class="text">Cvv</label>
+                <input type="text" formControlName="cvv">
+            </div>
+            <div class="pay-box">
+                <div class="check-box">
+                    <input class="check" type="checkbox" role="switch" (click)="saveCreditCard()">
+                </div>  
+                <div class="pay">
+                    <button type="button" (click)="payAdd()">Pay</button> 
+                    <h6 class="pay-text">{{price | currency}}</h6>
+                </div>
+            </div>
         </div>
-
-        <div>
-            <label>Date Month</label><br>
-            <input type="number" formControlName="dateMonth">
-        </div>
-
-        <div>
-            <label>Date Year</label><br>
-            <input type="number" formControlName="dateYear">
-        </div>
-
-        <div>
-            <label>Name on the card</label><br>
-            <input type="text" formControlName="nameOnTheCard">
-        </div>
-
-        <div>
-            <label>Cvv</label><br>
-            <input type="text" formControlName="cvv">
-        </div>
-
-        <br>
-
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" (click)="saveCreditCard()">
-        </div>   
-</form>
-        <button type="button" class="btn btn-success" (click)="payAdd()">Pay</button> 
-        <h6>{{price}} $</h6>
+    </form>
 </div>

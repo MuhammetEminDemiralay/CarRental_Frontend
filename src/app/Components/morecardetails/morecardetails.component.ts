@@ -44,9 +44,7 @@ export class MorecardetailsComponent implements OnInit{
 
   getCarImagesByCarId(carId : number) {
     this.carImageService.getImagesByCarId(carId).subscribe(response => {
-      this.carImagePaths = response.data.filter(p => p.imagePath);
-      console.log(this.carImagePaths);
-      
+      this.carImagePaths = response.data.filter(p => p.imagePath);      
     })
   }
 
