@@ -82,7 +82,7 @@ export class UpdateCarComponent implements OnInit{
   }
 
   getBrandModels(){
-    this.brandModelService.brandModels().subscribe(response => {
+    this.brandModelService.getBrandModels().subscribe(response => {
       this.brandModels = response.data;
     })
   }

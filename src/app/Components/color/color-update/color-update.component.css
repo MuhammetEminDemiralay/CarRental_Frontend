@@ -1,0 +1,26 @@
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+form button{
+   margin-top: 10px;
+   width: 100%;
+   background-color: #fff;
+   border: thin solid black;
+   padding: 5px;
+   font-weight: 500;
+   transition: all 0.3s linear;
+}
+
+form button:hover{
+    background-color: #124e78;
+    color: #fff;
+}
+
+.boxs .box input{
+    padding: 5px;
+    outline: none;
+}

@@ -37,17 +37,24 @@ export class CarAddComponent implements OnInit{
     this.brandService.getAllBrands().subscribe(response => {
       this.brands = response.data;
     })
+    
+  }
+
+  getBrandModelsByBrandId(brandId : number){
+    this.brandModelService.getBrandModelsByBrandId(2).subscribe(response => {
+      console.log(response.data);
+    })
+  }     // brand modelleri bağla!
+
+  getBrandModels(){
+    this.brandModelService.getBrandModels().subscribe(response => {
+      this.brandModels = response.data;
+    })
   }
 
   getColors(){
     this.colorService.getColors().subscribe(response => {
       this.colors = response.data;
-    })
-  }
-
-  getBrandModels(){
-    this.brandModelService.brandModels().subscribe(response => {
-      this.brandModels = response.data;
     })
   }
 

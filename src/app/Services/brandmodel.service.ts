@@ -13,9 +13,13 @@ export class BrandModelService {
 
   apiUrl = "https://localhost:44313/api/";
   
-  brandModels() : Observable<ListResponseModel<BrandModel>>{ 
-    let neWPath = this.apiUrl+ "BrandModel/getall";
+  getBrandModels() : Observable<ListResponseModel<BrandModel>>{ 
+    let neWPath = this.apiUrl + "BrandModel/getall";
     return this.httpClient.get<ListResponseModel<BrandModel>>(neWPath)
   }
 
+  getBrandModelsByBrandId(brandId : number) : Observable<ListResponseModel<BrandModel>>{
+    let newPath = this.apiUrl + "BrandModel/getBrandModelsByBrandId?brandId=" + brandId;
+    return this.httpClient.get<ListResponseModel<BrandModel>>(newPath);
+  }
 }

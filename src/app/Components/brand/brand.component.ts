@@ -68,7 +68,7 @@ export class BrandComponent implements OnInit {
   }
   
   getCarModels(){
-    this.brandModelService.brandModels().subscribe(response => {
+    this.brandModelService.getBrandModels().subscribe(response => {
       this.carModels = response.data;
     })
   }

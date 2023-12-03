@@ -25,10 +25,10 @@
       <li><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
       
       <div class="btn-box">
-        <div class="user" *ngIf="!isAuthenticated()">
+        <div class="user" *ngIf="isAuthenticated()">
           <button (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
         </div>
-        <div class="admin" *ngIf="isAdmin()">          
+        <div class="admin" *ngIf="!isAdmin()">          
           <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
           <button (click)="update()"><i class='bx bxs-pencil'></i></button>
           <button (click)="delete()"><i class='bx bx-minus'></i></button>
@@ -44,20 +44,16 @@
 <div class="modal" tabindex="-1" id="add">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add a Brand</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-light">Add a Brand</h5>
+        <button type="button" class="btn-close text-bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body p-0 d-flex justify-content-center align-items-center">
           <app-car-add></app-car-add>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-footer gold-footer p-3">
       </div>
     </div>
   </div>
 </div>
-
-
 

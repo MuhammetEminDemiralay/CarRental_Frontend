@@ -11,7 +11,8 @@ import { BrandService } from 'src/app/Services/brand.service';
 export class BrandAddComponent implements OnInit{
   
 
-  constructor(private brandService : BrandService, private formBuilder : FormBuilder){}
+  constructor(private brandService : BrandService, 
+              private formBuilder : FormBuilder){}
 
   ngOnInit(): void {
     this.createAddForm();

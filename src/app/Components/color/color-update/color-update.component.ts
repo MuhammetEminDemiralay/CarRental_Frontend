@@ -18,16 +18,16 @@ export class ColorUpdateComponent implements OnInit{
 
   @Input() colorId : number;
 
-  updateColorForm : FormGroup;
+  colorUpdateForm : FormGroup;
 
   createColorForm(){
-    this.updateColorForm = this.formBuilder.group({
+    this.colorUpdateForm = this.formBuilder.group({
       colorName : ["", Validators.required]
     })
   }
 
   update(){
-    let model = Object.assign({}, this.updateColorForm.value);
+    let model = Object.assign({}, this.colorUpdateForm.value);
     let colorId = this.colorId;
     let colorModel = <Color>{
       id : colorId,
