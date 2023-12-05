@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from 'src/app/Models/car';
 import { CarDetail } from 'src/app/Models/carDetail';
@@ -15,10 +15,17 @@ import { CarİmageService } from 'src/app/Services/cari̇mage.service';
 export class MorecardetailsComponent implements OnInit{
   
 
-  constructor(private router : Router ,private carImageService :CarİmageService ,private authService : AuthService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
+  constructor(private router : Router, 
+              private carImageService :CarİmageService, 
+              private authService : AuthService, 
+              private carDetailService : CardetailService, 
+              private activatedRoute : ActivatedRoute,
+              private elementRef : ElementRef,
+              private renderer : Renderer2){}
 
   ngOnInit(): void {
    this.activatedRoute.params.subscribe(params =>{
+    this.carId = params["carId"];
     if(params["carId"]){
       this.getMoreCarDetails(params["carId"])
       this.getCarImagesByCarId(params["carId"])
@@ -26,6 +33,10 @@ export class MorecardetailsComponent implements OnInit{
    })
    this.authService.getUser();
    this.getCars();
+
+   if(localStorage.getItem("_token") == null){
+    this.isActive = true;
+   }
    
   }
 
@@ -33,8 +44,9 @@ export class MorecardetailsComponent implements OnInit{
   imageUrl = "https://localhost:44313/"
   noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
   carImagePaths: CarImage[] = [];
-
-
+  car : Car;
+  carId : number;
+  isActive : boolean= false;
   
   getMoreCarDetails(carId : CarDetail){
     this.carDetailService.getMoreCarDetails(carId).subscribe(response => {
@@ -48,7 +60,7 @@ export class MorecardetailsComponent implements OnInit{
     })
   }
 
-  car : Car;
+  
   getCars(){
     this.activatedRoute.params.subscribe(params =>{
     let carId = params["carId"];
@@ -57,8 +69,6 @@ export class MorecardetailsComponent implements OnInit{
     })
     })
   }
-
-
 
   rentCarId(){
     this.activatedRoute.params.subscribe(params => {
@@ -73,13 +83,6 @@ export class MorecardetailsComponent implements OnInit{
         this.router.navigate(["cardetails"])      
         })
     }
-  }
-
-  update(){
-    this.activatedRoute.params.subscribe(params =>{
-      let carId = params["carId"];
-      this.router.navigate(['updatecar', {carId : carId}])
-    })
   }
 
   isAdmin(){

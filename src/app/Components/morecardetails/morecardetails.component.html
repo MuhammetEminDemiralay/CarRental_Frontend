@@ -18,19 +18,20 @@
   </div>
   <div class="card-content">
     <div class="content"  *ngFor="let carDetail of carDetails">
-      <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
-      <li><b>Color : </b>{{carDetail.colorName}}</li>
-      <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
-      <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
-      <li><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
-      
-      <div class="btn-box">
+      <div class="content-box">  
+        <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
+        <li><b>Color : </b>{{carDetail.colorName}}</li>
+        <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
+        <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
+        <li><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
+      </div>  
+      <div class="btn-box" [ngClass]="{'active': isActive}">
         <div class="user" *ngIf="isAuthenticated()">
           <button (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
         </div>
-        <div class="admin" *ngIf="!isAdmin()">          
+        <div class="admin" *ngIf="isAdmin()">          
           <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
-          <button (click)="update()"><i class='bx bxs-pencil'></i></button>
+          <button data-bs-toggle="modal" data-bs-target="#update"><i class='bx bxs-pencil'></i></button>
           <button (click)="delete()"><i class='bx bx-minus'></i></button>
         </div>
       </div>
@@ -45,7 +46,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header bg-dark">
-        <h5 class="modal-title text-light">Add a Brand</h5>
+        <h5 class="modal-title text-light">Add a Car</h5>
         <button type="button" class="btn-close text-bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body p-0 d-flex justify-content-center align-items-center">
@@ -56,4 +57,22 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal" tabindex="-1" id="update">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-light">Update a Car</h5>
+        <button type="button" class="btn-close text-bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0 d-flex justify-content-center align-items-center">
+          <app-update-car [carId]="carId"></app-update-car>
+      </div>
+      <div class="modal-footer gold-footer p-3">
+      </div>
+    </div>
+  </div>
+</div>
+
 

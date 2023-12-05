@@ -2,8 +2,8 @@
     <div class="colors">
       <div class="text" appDropDown>
         <span>Color</span>
-        <i *ngIf="isAdmin()"  class='bx bx-chevron-down arrow'></i>
-        <i appStoppropagation class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addColorModal"></i>
+        <i class='bx bx-chevron-down arrow'></i>
+        <i *ngIf="isAdmin()" appStoppropagation class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addColorModal"></i>
 
       </div>
       <div id="color-box">
@@ -13,8 +13,8 @@
           [class]="getCurrentColorClass(color)"
           routerLink="/cars/color/{{color.id}}">
           <li>{{color.colorName}}</li>
-          <i  appStoppropagation data-bs-toggle="modal" data-bs-target="#updateColorModal" class='bx bxs-pencil pen'></i>
-          <i  appStoppropagation (click)="deleteColor(color)" class='bx bx-minus minus'></i>
+          <i *ngIf="isAdmin()" appStoppropagation data-bs-toggle="modal" data-bs-target="#updateColorModal" class='bx bxs-pencil pen'></i>
+          <i *ngIf="isAdmin()" appStoppropagation (click)="deleteColor(color)" class='bx bx-minus minus'></i>
         </ul>
       </div>
     </div>

@@ -2,20 +2,20 @@
     <div class="boxs">
         <div class="box">
             <h4>Brand</h4>
-            <select class="form-group" formControlName="brandId">
-                <option [ngValue]="brand.id" *ngFor="let brand of brands">{{brand.brandName}}</option>
+            <select class="form-group" formControlName="brandId" (change)="getBrandModelsByBrandId($event)">
+                <option [value]="brand.id" *ngFor="let brand of brands">{{brand.brandName}}</option>
             </select>
         </div>
         <div class="box">
             <h4>Model</h4>
-            <select class="form-group" formControlName="brandModelId">
-                <option [ngValue]="carModel.id" *ngFor="let carModel of brandModels">{{carModel.model}}</option>
+            <select  class="form-group" formControlName="brandModelId">
+                <option [value]="carModel.id" *ngFor="let carModel of brandModels">{{carModel.model}}</option>
             </select>
         </div>
         <div class="box">
             <h4>Color</h4>
             <select class="form-group" formControlName="colorId">
-                <option [ngValue]="color.id" *ngFor="let color of colors">{{color.colorName}}</option>
+                <option [value]="color.id" *ngFor="let color of colors">{{color.colorName}}</option>
             </select>
         </div>
         <div class="box">

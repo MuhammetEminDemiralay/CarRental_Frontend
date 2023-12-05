@@ -6,8 +6,8 @@
   <div class="brands">
     <div class="text" appDropDown>
       <span>Brand</span>
-      <i *ngIf="isAdmin()" class='bx bx-chevron-down arrow'></i>
-      <i appStoppropagation class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addBrandModal"></i>
+      <i class='bx bx-chevron-down arrow'></i>
+      <i *ngIf="isAdmin()" appStoppropagation class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addBrandModal"></i>
     </div>
     <div id="brand-box">
       <ul class="brand"
@@ -18,8 +18,8 @@
         <li>
           {{brand.brandName}}
         </li>
-        <i *ngIf="!isAdmin()" appStoppropagation data-bs-toggle="modal" data-bs-target="#updateBrandModal" class='bx bxs-pencil pen'></i>
-        <i *ngIf="!isAdmin()" appStoppropagation (click)="deleteBrand(brand)" class='bx bx-minus minus'></i>
+        <i *ngIf="isAdmin()" appStoppropagation data-bs-toggle="modal" data-bs-target="#updateBrandModal" class='bx bxs-pencil pen'></i>
+        <i *ngIf="isAdmin()" appStoppropagation (click)="deleteBrand(brand)" class='bx bx-minus minus'></i>
       </ul>
     </div>
   </div>

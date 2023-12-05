@@ -17,18 +17,16 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CarAddComponent implements OnInit{
   
-
   constructor(private toastrService : ToastrService, private router : Router ,private carDetailService : CardetailService ,private brandModelService : BrandModelService ,private brandService : BrandService, private colorService : ColorService, private formBuilder : FormBuilder){}
 
   ngOnInit(): void {
     this.getBrands();
     this.getColors();
-    this.getBrandModels();
     this.createAddCarForms();
   }
 
-
   brands : Brand[] = [];
+  brandId : number;
   colors : Color[] = [];
   brandModels : BrandModel[] = [];
   carsForm : FormGroup;
@@ -40,15 +38,9 @@ export class CarAddComponent implements OnInit{
     
   }
 
-  getBrandModelsByBrandId(brandId : number){
-    this.brandModelService.getBrandModelsByBrandId(2).subscribe(response => {
-      console.log(response.data);
-    })
-  }     // brand modelleri bağla!
-
-  getBrandModels(){
-    this.brandModelService.getBrandModels().subscribe(response => {
-      this.brandModels = response.data;
+  getBrandModelsByBrandId(e : any){
+    this.brandModelService.getBrandModelsByBrandId(e.target.value).subscribe(response => {
+      this.brandModels = response.data      
     })
   }
 
@@ -69,7 +61,6 @@ export class CarAddComponent implements OnInit{
     })
   }
   
-
   add(){
     if(this.carsForm.valid){
       let productModel = Object.assign({}, this.carsForm.value)

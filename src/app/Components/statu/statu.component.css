@@ -54,7 +54,7 @@
 #statu-box .statu{
   padding: 10px 5px;
   border-radius: 2px;
-  transition: all 0.2s linear;
+  transition: all 0.1s linear;
 }
 
 .text .arrow{
