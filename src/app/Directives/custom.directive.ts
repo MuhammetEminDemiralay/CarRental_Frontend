@@ -14,7 +14,7 @@ export class CustomDirective {
     if(state === true){
           this.renderer.setStyle(this.el.nativeElement, "backgroundColor", "#89fc00");
     }else{
-      this.renderer.setStyle(this.el.nativeElement, "backgroundColor", "#ef233c");
+      this.renderer.setStyle(this.el.nativeElement, "backgroundColor", "#ff5555");
     }
   }
 

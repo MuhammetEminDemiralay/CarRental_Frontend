@@ -4,5 +4,15 @@
     height: 60px;
     border: none;
     outline: none;
-    background-color: #06d6a0;
+    background-color: #ef233c;
+    position: relative;
 }
+
+.car{
+    position: absolute;
+    right: 0;
+    font-size: 50px;
+    animation: car 2s ease-in forwards;
+}
+
+

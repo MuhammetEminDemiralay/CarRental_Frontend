@@ -1,30 +1,23 @@
-<form [formGroup]="registerForm">
-    
-   <div id="box1">
-    <div>
-        <label>FirstName</label><br>
-        <input type="text" formControlName="firstName">
-    </div>
+<div class="wrapper">
+    <form [formGroup]="registerForm">
+        <header class="header-top">
+            <span class="text">Register</span>
+        </header>
 
-    <div>
-        <label>LastName</label><br>
-        <input type="text" formControlName="lastName">
-    </div>
-
-    <div>
-        <label>Email</label><br>
-        <input type="text" formControlName="email">
-    </div>
-
-    <div>
-        <label>Password</label><br>
-        <input type="password" formControlName="password">
-    </div>
-    <div>
-        <button (click)="register()">Register</button>
-    </div>
-
-   </div>
-    
-    
-</form>
+        <div class="firstname-box">
+            <input type="text" placeholder="firsname..." formControlName="firstName">
+        </div>
+        <div class="lastname-box">
+            <input type="text" placeholder="lastname..." formControlName="lastName">
+        </div>
+        <div class="email-box">
+            <input type="email" placeholder="email..." formControlName="email">
+        </div>
+        <div class="password-box">
+            <input type="password" placeholder="password..." formControlName="password">
+        </div>
+        <button class="btn" (click)="register()">Register</button>
+        <header class="header-bottom">
+        </header>
+    </form>
+</div>

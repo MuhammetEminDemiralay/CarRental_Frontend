@@ -38,17 +38,18 @@
 .card-content .content{
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    background-color: rgb(67, 255, 205);
+    background-color: #fff;
 }
 
 .content li{
     list-style-type: none;
-    padding: 5px;
+    padding: 7px;
     width: 100%;
     border: thin solid #343434;
     color: black;
     font-size: 16px;
     font-weight: 500;
+    text-indent: 10px;
 }
 
 .content b{
@@ -69,6 +70,7 @@
 
 .btn-box .user button,
 .btn-box .admin button{
+    width: 300px;
     padding: 5px 15px;
     cursor: pointer;
     outline: none;
