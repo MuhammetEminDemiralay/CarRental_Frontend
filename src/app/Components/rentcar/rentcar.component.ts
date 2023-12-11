@@ -52,15 +52,12 @@ export class RentcarComponent implements OnInit{
     const day =  Math.floor(time / (1000 * 60 * 60 * 24));
     let rentDay = day + 1;
     let price = rentDay * this.dailyPrice;
-    console.log(price);
-    
     return price;
   }
 
   
   rent(){
     let rentModel = Object.assign({}, this.rentForm.value);
-
     let endDate = new Date(rentModel.returnDate);
     let startDate = new Date(rentModel.rentDate);
     let totalAmount = this.totalPrice(endDate, startDate);  
@@ -76,8 +73,5 @@ export class RentcarComponent implements OnInit{
     this.rentService.rentAdd(model).subscribe(response => {
     })
   }
-
-
-
 
 }

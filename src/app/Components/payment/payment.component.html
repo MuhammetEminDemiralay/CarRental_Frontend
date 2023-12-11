@@ -10,7 +10,7 @@
             </div>
             <div class="box">
                 <label class="text">Card Number</label>
-                <input type="number" formControlName="cardNumber">
+                <input type="number" formControlName="cardNumber" min="16" max="16" >
             </div>
             <div class="box">
                 <label class="text">Date Month</label>
@@ -29,20 +29,12 @@
                 <input type="text" formControlName="cvv">
             </div>
             <div class="pay-box">
-                <button class="pay-btn" type="button" (click)="payAdd()">Pay</button>
+                <div (click)="saveCreditCard()"  class="check-box"></div>
+                <button class="pay-btn" type="submit" (click)="payAdd()">Pay</button>
                 <span class="pay-text">{{price | currency}}</span>
             </div>
         </div>
     </form>
 </div>
 
-
-<!-- <div class="pay-box">
-    <div class="check-box">
-        <input class="check" type="checkbox" role="button" (click)="saveCreditCard()">
-    </div>  
-    <div class="pay">
-        <button type="button" (click)="payAdd()">Pay</button> 
-        <span class="pay-text">{{price | currency}}</span>
-    </div>
-</div> -->
+<input type="checkbox">

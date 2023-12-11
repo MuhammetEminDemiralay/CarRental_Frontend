@@ -82,7 +82,11 @@
     transition: all 0.2s linear;
 }
 
-.btn-box .user button:hover,
+.user button:disabled{
+    background-color: red;
+}
+
+
 .btn-box .admin button:hover{
     background-color: #124e78;
     color: #fff;
@@ -96,3 +100,4 @@
 .gold-footer{
     background-color: #efb810;
 }
+

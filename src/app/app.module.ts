@@ -35,8 +35,6 @@ import { StoppropagationDirective } from './Directives/stoppropagation.directive
 
 
 
-
-
 export function tokenGetter() {
   return localStorage.getItem("access_token");
 }
@@ -66,7 +64,7 @@ export function tokenGetter() {
     DropDownDirective,
     HeaderComponent,
     ComingsoonComponent,
-    StoppropagationDirective
+    StoppropagationDirective,
 
   ],
   imports: [

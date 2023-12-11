@@ -4,11 +4,11 @@
         <div class="section">
             <div class="box">
                 <label class="text">Rent Date</label>
-                <input type="date" formControlName="rentDate">
+                <input type="date" formControlName="rentDate" [min]="minDate">
             </div>
             <div class="box">
                 <label class="text">Return Date</label>
-                <input type="date" formControlName="returnDate">
+                <input type="date" formControlName="returnDate" [min]="minDate">
             </div>
             <div class="box">
                 <button (click)="rent()" class="btn">Rent</button>

@@ -8,17 +8,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .container .cards{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap:15px
+  display: flex;
+  justify-content: start;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 0 40px ;
 }
 
 .cards .card{
   position: relative;
   max-width: 250px;
+  min-width: 250px;
   width: 100%;
   border: 5px solid #fff;
   border: thin solid rgb(194, 194, 194);

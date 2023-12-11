@@ -16,13 +16,19 @@ import { PaymentService } from 'src/app/Services/payment.service';
 })
 export class PaymentComponent implements OnInit{
   
-  constructor(private toastrService : ToastrService ,private activatedRoute : ActivatedRoute, private formBuilder : FormBuilder, private authService : AuthService, private creditCardService : CreditcardService, private paymentService : PaymentService){}
+  constructor(private toastrService : ToastrService, 
+              private activatedRoute : ActivatedRoute, 
+              private formBuilder : FormBuilder, 
+              private authService : AuthService, 
+              private creditCardService : CreditcardService, 
+              private paymentService : PaymentService){}
 
   ngOnInit(): void {
     this.createCreditCardForms();
     this.authService.getUser();
     this.getCardsByUserId();
     this.activatedRoute.params.subscribe(params => {this.price = params["price"]})
+    
   }
 
   creditCardForms : FormGroup;
@@ -41,23 +47,37 @@ export class PaymentComponent implements OnInit{
     })   
   }
 
+
+
+
+
   saveCreditCard(){
+
     let cardModel = Object.assign({}, this.creditCardForms.value);
-    let model = <CreditCard>{
+      let model = <CreditCard>{
       userId : this.authService.user.userId,
       cardNumber : cardModel.cardNumber,
       dateMonth : cardModel.dateMonth,
       dateYear : cardModel.dateYear,
       nameOnTheCard : cardModel.nameOnTheCard,
       cvv : cardModel.cvv
-    } 
-    this.creditCardService.addCard(model).subscribe(response => {
-    })
+      }     
+
+      let anyCard = this.saveCards.filter((card) => card.cardNumber === model.cardNumber)
+      if(anyCard.length === 0){
+        this.creditCardService.addCard(model).subscribe(response => {
+          this.toastrService.success("Card saved","Success");
+          this.getCardsByUserId();
+        })                
+      }
+      else{
+        this.toastrService.info("the card is already registered","İnfo")
+      }  
+
   }
 
-
  getCardsByUserId(){
-  this.creditCardService.getCarsByUserId(this.authService.userId).subscribe(response =>{
+  this.creditCardService.getCardByUserId(this.authService.userId).subscribe(response =>{
     this.saveCards = response.data;    
   })
  }
@@ -74,16 +94,16 @@ export class PaymentComponent implements OnInit{
     creditCardId : this.cardId,
     totalAmount : this.price
   }
+  if(model.creditCardId == null){
+    this.toastrService.error("Enter a valid credit card", "Error");
+  }else{
+    this.paymentService.addPay(model).subscribe(response => {
+      console.log(response.message);
+      this.toastrService.success("Payment Completed")
+    })
+  }
 
-  this.paymentService.addPay(model).subscribe(response => {
-    console.log(response.message);
-    this.toastrService.success("Payment Completed")
-  })
 
  }
-
- 
-
-
 
 }

@@ -19,6 +19,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
 
 
+
 const routes: Routes = [
   {path : "", component : HomeComponent},
   {path : "cardetails", component : CarDetailsComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path : "cars/statu/:statuId", component : CarDetailsComponent},
   {path : "home", component : HomeComponent},  
   {path : "**", component : ComingsoonComponent}
+
 ];
 
 @NgModule({

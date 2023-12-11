@@ -10,7 +10,6 @@
     align-items: center;
     justify-content: center;
     row-gap: 10px;
-    max-width: 700px;
     width: 100%;
     height: 600px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -48,9 +47,9 @@
 .section .box .text,
 .pay .pay-text{
     align-self: flex-start;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 500;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     color: #828282;
 }  
 
@@ -59,18 +58,41 @@
 }
 
 .section .pay-box{
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    column-gap: 20px;
+    justify-content: space-between;
+    column-gap: 10px;
+    width: 200px;
+    display: flex;
     margin-top: 16px;
+}
+
+.check-box{
+    position: relative;
+    width: 38px;
+    height: 18px;
+    border-radius: 9px;
+    border: 1px solid black;
+}
+
+.check-box::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid black;
+    background-color: rgb(190, 190, 190);
+    transform: translateY(-50%);
+    border-radius: 50%;
 }
 
 
 .pay-box .pay-btn{
-    width: 100px;
+    width: 90px;
     border: thin solid black;
-    border-radius: 0;
     transition: all 0.2s linear;
     font-size: 20px;
     font-weight: 500;
@@ -79,8 +101,4 @@
 .pay-btn:hover{
     background-color: #124e78;
     color: #fff;
-}
-
-.pay-box .pay-text{
-    font-weight: bold;
 }
