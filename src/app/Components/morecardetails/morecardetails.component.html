@@ -1,28 +1,24 @@
 
 
 <div class="section">
-  <div id="carouselExampleAutoplaying" class="carousel slide wrapper" data-bs-ride="carousel">
-      <div class="carousel-inner image-box" *ngFor="let carDetail of carDetails">
-        <div class="carousel-item active car-images" *ngFor="let image of carImagePaths">
-          <img class="image d-block w-100" [src]="image.imagePath.length !== 0 ? imageUrl + image.imagePath : imageUrl + noPhotoUrl">
-        </div>  
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+
+  <div class="wrapper">
+    <i class='bx bx-chevron-left left' (click)="left()"></i>
+    <div class="image-box">
+        <div class="carousel" #carousel>
+          <img  *ngFor="let image of carImagePaths" [src]="imageUrl + image.imagePath"> 
+        </div>
+    </div>
+    <i class='bx bx-chevron-right right' (click)="right()"></i>
   </div>
+
   <div class="card-content">
     <div class="content"  *ngFor="let carDetail of carDetails">
       <div class="content-box">  
         <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
         <li><b>Color : </b>{{carDetail.colorName}}</li>
         <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
-        <li><b>Daily Price : </b>{{carDetail.dailyPrice}}</li>
+        <li><b>Daily Price : </b>{{carDetail.dailyPrice | currency}}</li>
         <li><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
       </div>  
       <div class="btn-box" [ngClass]="{'active': isActive}">
@@ -38,8 +34,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 <div class="modal" tabindex="-1" id="add">

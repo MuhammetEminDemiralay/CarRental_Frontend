@@ -6,7 +6,7 @@
   <div class="brands">
     <div class="text" appDropDown>
       <span>Brand</span>
-      <i class='bx bx-chevron-down arrow'></i>
+      <i *ngIf="!isAdmin()" class='bx bx-chevron-down arrow'></i>
       <i *ngIf="isAdmin()" appStoppropagation class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addBrandModal"></i>
     </div>
     <div id="brand-box">

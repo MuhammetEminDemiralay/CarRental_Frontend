@@ -4,7 +4,7 @@
     <ul *ngFor="let carDetail of carDetails" class="list-group list-group-flush card">
 
       <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
-      <li  class="list-group-item text-center text"><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>                                            
+      <li  class="list-group-item text-center text"><b id="model">{{carDetail.brandName}} || {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>                                            
       <li class="list-group-item text-center text">{{carDetail.modelYear}}</li>
       <li class="list-group-item text-center text">{{carDetail.colorName}}</li>
       <li class="list-group-item text-center text">{{carDetail.dailyPrice | currency}}</li>

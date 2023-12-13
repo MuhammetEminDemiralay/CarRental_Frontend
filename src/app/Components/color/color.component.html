@@ -2,7 +2,7 @@
     <div class="colors">
       <div class="text" appDropDown>
         <span>Color</span>
-        <i class='bx bx-chevron-down arrow'></i>
+        <i *ngIf="!isAdmin()" class='bx bx-chevron-down arrow'></i>
         <i *ngIf="isAdmin()" appStoppropagation class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addColorModal"></i>
 
       </div>

@@ -56,7 +56,7 @@
 #color-box .color{
   padding: 10px 5px;
   border-radius: 2px;
-  transition: all 0.1s linear;
+  transition: all .3s linear;
 }
 
 .text .arrow{
@@ -76,6 +76,8 @@
   font-weight: 500;
   top: 50%;
   transform: translateY(-50%);
+  transition: all .3s linear;
+
 }
 
 .color .pen{
