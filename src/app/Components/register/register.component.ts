@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 
@@ -12,7 +13,8 @@ export class RegisterComponent implements OnInit{
   
   constructor(private authService : AuthService,
               private formBuilder : FormBuilder,
-              private localStorageService : LocalStorageService){}
+              private localStorageService : LocalStorageService,
+              private activatedRoute : ActivatedRoute){}
 
   registerForm : FormGroup;
 

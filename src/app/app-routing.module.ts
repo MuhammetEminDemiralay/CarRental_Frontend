@@ -17,12 +17,13 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { StatuComponent } from './Components/statu/statu.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
+import { exampleGuard } from './Guards/guards';
 
 
 
 const routes: Routes = [
   {path : "", component : HomeComponent},
-  {path : "cardetails", component : CarDetailsComponent},
+  {path : "cardetails", component : CarDetailsComponent, data:{key:"car"}},
   {path : "cars/brand/:brandId", component : CarDetailsComponent},
   {path : "cars/color/:colorId", component : CarDetailsComponent},
   {path : "moreCarDetails/:carId", component : MorecardetailsComponent},
@@ -30,14 +31,15 @@ const routes: Routes = [
   {path : "colorAdd", component : ColorAddComponent},
   {path : "brandUpdate", component : BrandUpdateComponent},
   {path : "login", component : LoginComponent},
-  {path : "register", component : RegisterComponent},
+  {path : "register", component : RegisterComponent, canActivate:[exampleGuard]},
   {path : "add", component : CarAddComponent},
   {path : "updatecar", component : UpdateCarComponent},
   {path : "rentcar", component : RentcarComponent},
   {path : "payment", component : PaymentComponent},
   {path : "cars/statu/:statuId", component : CarDetailsComponent},
   {path : "home", component : HomeComponent},  
-  {path : "**", component : ComingsoonComponent}
+  {path : "**", component : ComingsoonComponent},
+ 
 
 ];
 

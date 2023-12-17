@@ -14,7 +14,13 @@ import { BrandModelService } from 'src/app/Services/brandmodel.service';
 })
 export class BrandComponent implements OnInit {
   
-  constructor(private elementRef : ElementRef, private rederer : Renderer2 ,private activatedRoute : ActivatedRoute ,private authService : AuthService, private router : Router ,private brandService : BrandService, private brandModelService : BrandModelService){}
+  constructor(private elementRef : ElementRef, 
+    private rederer : Renderer2, 
+    private activatedRoute : ActivatedRoute,
+    private authService : AuthService, 
+    private router : Router,
+    private brandService : BrandService, 
+    private brandModelService : BrandModelService){}
 
   ngOnInit(): void {
     this.authService.getUser();
@@ -38,13 +44,6 @@ export class BrandComponent implements OnInit {
     this.brandId = brand.id;
   }
 
-  getCurrentBrandClass(brand : Brand){
-    if(this.currentBrand == brand){
-      return "list-group-item active";
-    }else{
-      return "list-group-item";
-    }
-  }
 
   getAllBrandClass(){
     if(!this.currentBrand){

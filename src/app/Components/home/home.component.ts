@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent{
-
+user : any = [
+  {id : 1, name : "Muhammet"},
+  {id : 2, name : "Ali"},
+  {id : 3, name : "Duygu"},
+  {id : 4, name : "Ayşenur"}
+]
 
 }

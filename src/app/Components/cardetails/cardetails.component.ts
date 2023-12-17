@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetail } from 'src/app/Models/carDetail';
 import { CarImage } from 'src/app/Models/carİmage';
 import { AuthService } from 'src/app/Services/auth.service';
 import { CardetailService } from 'src/app/Services/cardetail.service';
 import { CarİmageService } from 'src/app/Services/cari̇mage.service';
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -14,7 +15,12 @@ import { CarİmageService } from 'src/app/Services/cari̇mage.service';
 })
 export class CarDetailsComponent implements OnInit{
   
-  constructor(private authService : AuthService ,private carİmagesService : CarİmageService, private carDetailService : CardetailService, private activatedRoute : ActivatedRoute){}
+  constructor(private authService : AuthService, 
+              private carİmagesService : CarİmageService, 
+              private carDetailService : CardetailService, 
+              private activatedRoute : ActivatedRoute,
+              private router : Router){
+              }
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {      
@@ -39,7 +45,9 @@ export class CarDetailsComponent implements OnInit{
   carDetails : CarDetail[] = [];
   imageUrl = "https://localhost:44313/";
   noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
- 
+  searchKey : string;
+  filterCarDetails : CarDetail[] = [];
+
   getCarDetails(){
     this.carDetailService.getCarsDetail().subscribe(response => {
       this.carDetails = response.data;    
@@ -58,16 +66,33 @@ export class CarDetailsComponent implements OnInit{
     })
   }
 
-
   getCarsDetailColor(colorId : number){
     this.carDetailService.getCarDetailColor(colorId).subscribe(response => {
       this.carDetails = response.data;
     })
   }
 
-
   isAdmin(){
     return this.authService.isAdmin()
+  }
+
+  searchListen(e : any){
+    this.searchKey = e.target.value;
+    if(this.searchKey == ""){
+      this.filterCarDetails = undefined;
+      this.search();
+    } 
+  }
+
+  search(){
+    this.filterCarDetails = [];
+    this.carDetails.forEach(item => {
+      if(item.brandName.includes(this.searchKey) || item.model.includes(this.searchKey)){
+        if(this.searchKey != ""){
+          this.filterCarDetails.push(item);
+        }
+      }
+    })
   }
 
 
