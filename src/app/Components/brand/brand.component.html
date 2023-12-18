@@ -4,7 +4,7 @@
     All Cars
   </div>
   <div class="brands">
-    <div class="text" appDropDown>
+    <div class="text" appDropDown (click)="notActive()" (click)="allBrands()">
       <span>Brand</span>
       <i *ngIf="!isAdmin()" class='bx bx-chevron-down arrow'></i>
       <i *ngIf="isAdmin()" appStoppropagation class='bx bx-plus plus' data-bs-toggle="modal" data-bs-target="#addBrandModal"></i>
@@ -12,11 +12,13 @@
     <div id="brand-box">
       <ul class="brand"
         *ngFor="let brand of brands"
+        [class]="isActive(brand)"
         (click)="setCurrentBrand(brand)"
         routerLink="/cars/brand/{{brand.id}}">
         <li>
           {{brand.brandName}}
         </li>
+        <i class='bx bx-show key'></i>
         <i *ngIf="isAdmin()" appStoppropagation data-bs-toggle="modal" data-bs-target="#updateBrandModal" class='bx bxs-pencil pen'></i>
         <i *ngIf="isAdmin()" appStoppropagation (click)="deleteBrand(brand)" class='bx bx-minus minus'></i>
       </ul>

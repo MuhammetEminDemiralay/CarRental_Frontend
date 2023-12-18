@@ -20,7 +20,8 @@ export class BrandComponent implements OnInit {
     private authService : AuthService, 
     private router : Router,
     private brandService : BrandService, 
-    private brandModelService : BrandModelService){}
+    private brandModelService : BrandModelService
+  ){}
 
   ngOnInit(): void {
     this.authService.getUser();
@@ -32,6 +33,7 @@ export class BrandComponent implements OnInit {
   carModels : BrandModel[] = [];
   currentBrand : Brand;
   brandId: number;
+  unloadCurrentBrand : Brand;
   
   getBrands(){
     this.brandService.getAllBrands().subscribe(response => {
@@ -44,16 +46,6 @@ export class BrandComponent implements OnInit {
     this.brandId = brand.id;
   }
 
-
-  getAllBrandClass(){
-    if(!this.currentBrand){
-      return "list-group-item active";
-    }else{
-      return "list-group-item";
-    }
-  }
-
-  unloadCurrentBrand : Brand;
   getClearCurrentBrand(){
     this.currentBrand = this.unloadCurrentBrand;
   }
@@ -76,17 +68,23 @@ export class BrandComponent implements OnInit {
     return this.authService.isAdmin();
   }
 
-  brandActive(e : any){
-    if(e.target.nextElementSibling.classList.contains('active')){
-      this.rederer.removeClass(e.target.nextElementSibling, "active")
-    }else{
-      this.rederer.addClass(e.target.nextElementSibling, "active")
+  isActive(brand : Brand){
+    if(!this.isAdmin()){
+      if(brand == this.currentBrand){
+        return "active"
+      }
     }
-    
+    return "";
   }
 
+  notActive(){
+    this.currentBrand = null;
+  }
 
-
+  allBrands(){
+    this.currentBrand = null;
+    this.router.navigate(["/cardetails"])
+  }
 
 }
 

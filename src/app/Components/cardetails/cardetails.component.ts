@@ -44,7 +44,8 @@ export class CarDetailsComponent implements OnInit{
 
   carDetails : CarDetail[] = [];
   imageUrl = "https://localhost:44313/";
-  noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
+  noPhotoUrl = "Images/cd7f46b67a054b8992f3a4488e8d7347.png"
+  
   searchKey : string;
   filterCarDetails : CarDetail[] = [];
 

@@ -1,6 +1,5 @@
 .section{
     max-width: 100%;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -12,6 +11,8 @@
     width: 100%;
     height: 380px;
     overflow: hidden;
+    border: 3px solid #fff;
+
 }
 
 .wrapper .image-box{
@@ -38,8 +39,12 @@
     position: absolute;
     top: 50%;
     transform:  translateY(-50%);
-    color: black;
-    font-size: 70px;
+    color: rgb(255, 255, 255);
+    border: 2px solid #fff;
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    border-radius: 50%;
+    font-size: 40px;
     font-weight: 500;
     cursor: pointer;
 }
@@ -57,44 +62,64 @@
 .section .card-content{
     max-width: 800px;
     width: 100%;
+    max-height: 380px;
 }
 
 .card-content .content{
     width: 100%;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    background-color: #fff;
+    height: 100%;
+    background-color: #708d81;
+
 }
 
-.content li{
-    list-style-type: none;
-    padding: 7px;
+.content .content-box{
     width: 100%;
-    border: thin solid #343434;
-    color: black;
-    font-size: 16px;
-    font-weight: 500;
-    text-indent: 10px;
+    height: 100%;
 }
 
-.content b{
-    font-size: 19px;
+.content-box li{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    list-style: none;
+    text-indent: 15px;
+    padding: 8px;
 }
 
 .btn-box{
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateX(-50deg);
+
+    width: 100%;
+    height: 60px;
     padding: 10px;
 }
+
+.btn-box .user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+.user button{
+    width: 100%;
+    padding: 8px;
+    background:none;
+    border: 2px black;
+}
+
 
 .active{
     display: none;
 }
 
 
-.btn-box .user button,
 .btn-box .admin button{
-    width: 300px;
+    width: 80px;
+    border-radius: 5px;
     padding: 5px 15px;
     cursor: pointer;
     outline: none;
@@ -124,3 +149,4 @@
 .gold-footer{
     background-color: #efb810;
 }
+

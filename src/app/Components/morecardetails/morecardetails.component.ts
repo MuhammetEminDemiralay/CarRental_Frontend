@@ -33,15 +33,14 @@ export class MorecardetailsComponent implements OnInit{
    })
    this.authService.getUser();
    this.getCars();
-
    if(localStorage.getItem("_token") == null){
     this.isActive = true;
    }  
   }
 
   carDetails : CarDetail[] = [];
-  imageUrl = "https://localhost:44313/"
-  noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg"
+  imageUrl = "https://localhost:44313/";
+  noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg";
   carImagePaths: CarImage[] = [];
   car : Car;
   carId : number;
@@ -49,27 +48,6 @@ export class MorecardetailsComponent implements OnInit{
   imageIndex : number = 1;
   @ViewChild("carousel", {static:true}) _carousel : ElementRef;
 
-  left(){
-    if(this.imageIndex == (this.carImagePaths.length)){
-      this.imageIndex = 1;
-    }else{
-      this._carousel.nativeElement.style.transform = `translate(-${this.imageIndex * 100}%)`
-      this.imageIndex += 1;
-      console.log(this.imageIndex);
-    }
-  }
-
-  right(){
-    if(this.imageIndex > 0){
-      this.imageIndex -= 1;
-      this._carousel.nativeElement.style.transform = `translate(-${this.imageIndex * 100}%)`;
-      console.log(this.imageIndex);
-    }else{
-      this.imageIndex = this.carImagePaths.length;
-    }
-
-  }
-  
   getMoreCarDetails(carId : CarDetail){
     this.carDetailService.getMoreCarDetails(carId).subscribe(response => {
       this.carDetails = response.data 
@@ -82,7 +60,6 @@ export class MorecardetailsComponent implements OnInit{
     })
   }
 
-  
   getCars(){
     this.activatedRoute.params.subscribe(params =>{
     let carId = params["carId"];
@@ -111,10 +88,37 @@ export class MorecardetailsComponent implements OnInit{
    return this.authService.isAdmin();
   }
   
-
   isAuthenticated(){
     return this.authService.loggedIn();
   }
 
+  left(){
+    if(this.carImagePaths.length == 0){
+      return;
+    }else{
+      if(this.imageIndex == (this.carImagePaths.length)){
+        this.imageIndex = 1;
+      }else{
+        this._carousel.nativeElement.style.transform = `translate(-${this.imageIndex * 100}%)`
+        this.imageIndex += 1;
+        console.log(this.imageIndex);
+      }
+    }
+  }
+
+  right(){
+    if(this.carImagePaths.length == 0){
+      return;
+    }else{
+      if(this.imageIndex > 0){
+        this.imageIndex -= 1;
+        this._carousel.nativeElement.style.transform = `translate(-${this.imageIndex * 100}%)`;
+        console.log(this.imageIndex);
+      }else{
+        this.imageIndex = this.carImagePaths.length;
+      }
+    }
+  }
+  
 
 }

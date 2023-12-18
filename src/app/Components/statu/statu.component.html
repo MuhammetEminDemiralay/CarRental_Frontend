@@ -1,6 +1,6 @@
 <div class="container">
     <div class="status">
-      <div class="text" appDropDown>
+      <div class="text" appDropDown (click)="notActive()" (click)="allStatu()">
         <span>Statu</span>
         <i class='bx bx-chevron-down arrow'></i>
       </div>
@@ -8,7 +8,7 @@
         <ul class="statu" 
             *ngFor="let statu of status"  
             (click)="setCurrentStatu(statu)"
-            [class]="getCurrentStatuClass(statu)"
+            [class]="isActive(statu)"
             routerLink="/cars/statu/{{statu.statuId}}">
             <li>
                 {{statu.statuName}}

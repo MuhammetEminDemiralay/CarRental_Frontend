@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Color } from 'src/app/Models/color';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ColorService } from 'src/app/Services/color.service';
@@ -10,7 +11,9 @@ import { ColorService } from 'src/app/Services/color.service';
 })
 export class ColorComponent implements OnInit{
   
-  constructor(private colorService : ColorService, private authService : AuthService){}
+  constructor(private colorService : ColorService, 
+              private authService : AuthService,
+              private router : Router){}
 
   ngOnInit(): void {
     this.getColors();
@@ -25,14 +28,6 @@ export class ColorComponent implements OnInit{
     this.colorService.getColors().subscribe(response => {
       this.colors = response.data;
     })
-  }
-
-  getCurrentColorClass(color : Color){
-    if(this.currentColor == color){
-      return "list-group-item active"
-    }else{
-      return "list-group-item"
-    }
   }
 
   setCurrentColor(color : Color){
@@ -55,5 +50,23 @@ export class ColorComponent implements OnInit{
 
   isAdmin(){
     return this.authService.isAdmin();
+  }
+
+  isActive(color : Color){
+    if(!this.isAdmin()){
+      if(color == this.currentColor){
+        return "active";
+      }
+    }
+    return "";
+  }
+
+  notActive(){
+    this.currentColor = null;
+  }
+
+  allColors(){
+    this.currentColor = null;
+    this.router.navigate(["/cardetails"])
   }
 }

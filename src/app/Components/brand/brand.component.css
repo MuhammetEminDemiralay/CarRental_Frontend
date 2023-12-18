@@ -18,14 +18,45 @@
   position: relative;
 }
 
+.container #brand-box{
+  background-color: #fff;
+}
+
 #brand-box .brand{
   border: thin solid black;
   margin: 0;
+  padding: 0;
   list-style-type: none;
   cursor: pointer;
-  background-color: #fff;
   color: black;
   position: relative;
+}
+
+
+.brand.active{
+  background-color: #124e78;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+
+.brand.active li{
+  color: #fff;
+}
+
+.brand.active .key{
+  visibility: visible;
+}
+
+.brand .key{
+  position: absolute;
+  right: 10px;
+  font-size: 25px;
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  visibility: hidden;
 }
 
 .brands .text{
@@ -47,21 +78,11 @@
   display: none;
 }
 
-.active{
-  background-color: #124e78;
-  color: black;
-}
-
-.not-active{
-  background-color: none;
-}
-
 .brands .text,
 .container .all-cars,
 #brand-box .brand{
   padding: 10px 5px;
   border-radius: 2px;
-  transition: all 0.3s linear;
 }
 
 .text .arrow{
@@ -83,7 +104,6 @@
   font-weight: 500;
   top: 50%;
   transform: translateY(-50%);
-  transition: all .3s linear;
 }
 
 .brand .pen{
@@ -103,3 +123,4 @@
 .gold-footer{
   background-color: #efb810;
 }
+

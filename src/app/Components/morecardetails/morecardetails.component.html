@@ -6,14 +6,14 @@
     <i class='bx bx-chevron-left left' (click)="left()"></i>
     <div class="image-box">
         <div class="carousel" #carousel>
-          <img  *ngFor="let image of carImagePaths" [src]="imageUrl + image.imagePath"> 
+          <img  *ngFor="let image of carImagePaths" [src]="image.imagePath.length !=0 ? imageUrl + image.imagePath : imageUrl + noPhotoUrl"> 
         </div>
     </div>
     <i class='bx bx-chevron-right right' (click)="right()"></i>
   </div>
 
   <div class="card-content">
-    <div class="content"  *ngFor="let carDetail of carDetails">
+    <div class="content" *ngFor="let carDetail of carDetails">
       <div class="content-box">  
         <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
         <li><b>Color : </b>{{carDetail.colorName}}</li>
@@ -22,15 +22,15 @@
         <li><b>Statu : </b>{{carDetail.isRentable ? "Avaible" : "Not Avaible"}}</li>
       </div>  
       <div class="btn-box" [ngClass]="{'active': isActive}">
-        <div class="user" *ngIf="isAuthenticated()">
-          <button (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
+        <div class="user" *ngIf="!isAdmin()" >
+          <button  *ngIf="isAuthenticated()" (click)="rentCarId()" [disabled]="carDetail?.isRentable !== true">Rent this car</button>
         </div>
         <div class="admin" *ngIf="isAdmin()">          
           <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
           <button data-bs-toggle="modal" data-bs-target="#update"><i class='bx bxs-pencil'></i></button>
           <button (click)="delete()"><i class='bx bx-minus'></i></button>
         </div>
-      </div>
+      </div> 
     </div>
   </div>
 </div>
