@@ -77,13 +77,19 @@
     height: 100%;
 }
 
+.content-box li b{
+    font-size: 20px;
+    color: #000814;
+}
+
 .content-box li{
     width: 100%;
     height: 100%;
     border: 2px solid #fff;
+    color: #f9f7f3;
     list-style: none;
-    text-indent: 15px;
-    padding: 8px;
+    padding: 8px 15px;
+    font-size: 18px;
 }
 
 .btn-box{
@@ -91,10 +97,10 @@
     align-items: center;
     justify-content: center;
     transform: translateX(-50deg);
-
     width: 100%;
     height: 60px;
     padding: 10px;
+    border: 2px solid #fff;
 }
 
 .btn-box .user{
@@ -102,20 +108,27 @@
     align-items: center;
     justify-content: center;
     width: 200px;
+    background-color: #fff;
 }
 
 .user button{
     width: 100%;
     padding: 8px;
     background:none;
-    border: 2px black;
+    transition: all 0.2s linear;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
 }
 
+.user button:hover{
+    background-color: #155888;
+    color: #fff;
+}
 
 .active{
     display: none;
 }
-
 
 .btn-box .admin button{
     width: 80px;

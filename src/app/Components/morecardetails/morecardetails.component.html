@@ -15,7 +15,7 @@
   <div class="card-content">
     <div class="content" *ngFor="let carDetail of carDetails">
       <div class="content-box">  
-        <li><b id="model">{{carDetail.brandName}}  {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
+        <li><b id="model">{{carDetail.brandName}} || {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>
         <li><b>Color : </b>{{carDetail.colorName}}</li>
         <li><b>Model Year : </b>{{carDetail.modelYear}}</li>
         <li><b>Daily Price : </b>{{carDetail.dailyPrice | currency}}</li>

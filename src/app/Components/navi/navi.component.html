@@ -1,3 +1,24 @@
 <div class="wrapper">
-
+    <div class="sign-box">
+        <div *ngIf="!isAuthentication()" class="login" routerLink="/login">
+            <span>LOGİN</span>
+        </div>
+        <div *ngIf="!isAuthentication()" class="register" routerLink="/register">
+            <span>REGİSTER</span>
+        </div>
+        <div class="profil-box" *ngIf="isAuthentication()">
+            <button class="profil-btn" (click)="dropdown()">                    
+                <i class='bx bxs-user user'></i>
+                <div class="text">Profil edit</div>
+            </button>
+            <div class="menu active" #menu>
+                <li>
+                    <div class="menu-text">Profil Edit</div>
+                </li>
+                <li>
+                    <div class="menu-text" (click)="logOut()">Log Out</div>                    
+                </li>
+            </div>
+        </div>
+    </div>
 </div>

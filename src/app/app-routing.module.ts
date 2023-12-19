@@ -31,7 +31,7 @@ const routes: Routes = [
   {path : "colorAdd", component : ColorAddComponent},
   {path : "brandUpdate", component : BrandUpdateComponent},
   {path : "login", component : LoginComponent},
-  {path : "register", component : RegisterComponent, canActivate:[exampleGuard]},
+  {path : "register", component : RegisterComponent},
   {path : "add", component : CarAddComponent},
   {path : "updatecar", component : UpdateCarComponent},
   {path : "rentcar", component : RentcarComponent},
@@ -40,6 +40,7 @@ const routes: Routes = [
   {path : "home", component : HomeComponent},  
   {path : "**", component : ComingsoonComponent},
  
+  // canActivate:[exampleGuard]
 
 ];
 
