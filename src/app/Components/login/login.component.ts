@@ -38,8 +38,9 @@ export class LoginComponent implements OnInit {
       let model = Object.assign({}, this.loginForm.value);
       this.authService.login(model).subscribe(response => {
         this.localStorageService.setToken(response.data.token);
-        this.authService.getUser()
-        this.router.navigate(["cardetails"])
+        this.authService.getUser();
+        this.router.navigate(["cardetails"]);
+        window.location.reload();
       })
     }
   }

@@ -1,0 +1,14 @@
+<form [formGroup]="userEditForm">
+
+
+    <label>Email</label>
+    <input type="email" formControlName="email"><br>
+
+    <label>Firstname</label>
+    <input type="text" formControlName="firstname"><br>
+
+    <label>Lastname</label>
+    <input type="text" formControlName="lastname"><br>
+
+    <button (click)="updateUser()">UPDATE</button>
+</form>

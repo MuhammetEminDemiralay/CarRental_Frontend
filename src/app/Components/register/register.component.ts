@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit{
     this.authService.register(model).subscribe(response => {
       this.localStorageService.setToken(response.data.token);
       this.registerForm.reset();
-      this.authService.getUser()                     
+      this.authService.getUser();
     })
     }
   }

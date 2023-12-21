@@ -9,14 +9,20 @@
         <div class="profil-box" *ngIf="isAuthentication()">
             <button class="profil-btn" (click)="dropdown()">                    
                 <i class='bx bxs-user user'></i>
-                <div class="text">Profil edit</div>
+                <div class="text">{{user[0]}}</div>
             </button>
             <div class="menu active" #menu>
                 <li>
-                    <div class="menu-text">Profil Edit</div>
+                    <div class="option-box" routerLink="/profil">
+                        <i class='bx bx-pencil icon'></i>
+                        <div class="menu-text">Profil Edit</div>
+                    </div>
                 </li>
                 <li>
-                    <div class="menu-text" (click)="logOut()">Log Out</div>                    
+                    <div class="option-box">
+                        <i class='bx bx-log-out icon'></i>               
+                        <div class="menu-text" (click)="logOut()">Log Out</div>
+                    </div>
                 </li>
             </div>
         </div>

@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/Models/user';
 import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
@@ -9,17 +11,28 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class NaviComponent implements OnInit{
 
   constructor(private authService : AuthService,
-              private renderer : Renderer2  
+              private renderer : Renderer2,
+              private router : Router
               ){}
 
   ngOnInit(): void {
+    if(localStorage.getItem("_token")){
+      this.user = this.authService.getUser().userName.split(" ");
+    }
   }
   
   active : boolean = false;
   @ViewChild('menu') menu : ElementRef; 
+  user : string[];
 
   isAuthentication(){
     return this.authService.loggedIn();
+  }
+
+  logOut(){
+    localStorage.removeItem("_token");
+    this.router.navigate(["cardetails"]);
+    this.user = [];
   }
 
   dropdown(){
@@ -32,8 +45,5 @@ export class NaviComponent implements OnInit{
     }
   }
 
-  logOut(){
-    localStorage.removeItem("_token");
-  }
 
 }

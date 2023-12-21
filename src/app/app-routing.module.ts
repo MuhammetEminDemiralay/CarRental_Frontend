@@ -17,7 +17,8 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { StatuComponent } from './Components/statu/statu.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
-import { exampleGuard } from './Guards/guards';
+import { adminGuard, profilGuard } from './Guards/guard'
+import { ProfilEditComponent } from './Components/profil-edit/profil-edit.component';
 
 
 
@@ -38,9 +39,9 @@ const routes: Routes = [
   {path : "payment", component : PaymentComponent},
   {path : "cars/statu/:statuId", component : CarDetailsComponent},
   {path : "home", component : HomeComponent},  
+  {path : "profil", component : ProfilEditComponent, canActivate:[profilGuard]},
   {path : "**", component : ComingsoonComponent},
  
-  // canActivate:[exampleGuard]
 
 ];
 

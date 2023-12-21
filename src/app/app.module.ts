@@ -32,6 +32,7 @@ import { DropDownDirective } from './Directives/drop-down.directive';
 import { HeaderComponent } from './Components/header/header.component';
 import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
 import { StoppropagationDirective } from './Directives/stoppropagation.directive';
+import { ProfilEditComponent } from './Components/profil-edit/profil-edit.component';
 
 
 
@@ -65,6 +66,7 @@ export function tokenGetter() {
     HeaderComponent,
     ComingsoonComponent,
     StoppropagationDirective,
+    ProfilEditComponent,
 
   ],
   imports: [
