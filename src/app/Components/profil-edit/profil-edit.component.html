@@ -10,5 +10,18 @@
     <label>Lastname</label>
     <input type="text" formControlName="lastname"><br>
 
-    <button (click)="updateUser()">UPDATE</button>
+    <button (click)="updateUser()">User info update</button>
+</form>
+
+<hr style="color: #fff;">
+
+<form [formGroup]="userPasswordForm">
+
+    <label>Password old</label>
+    <input type="password" formControlName="oldPassword"><br>
+
+    <label>Password new</label>
+    <input type="password" formControlName="newPassword"><br>
+
+    <button (click)="updatePassword()">Change Password</button>
 </form>

@@ -13,7 +13,13 @@ export class UserService {
   apiUrl = "https://localhost:44313/api/"
 
   userUpdate(user : any) : Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "User/update",user);
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "User/userınfoupdate",user);
   }
+
+  userPasswordUpdate(user : any) : Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "User/userchangepassword", user);
+  }
+
+
 
 }

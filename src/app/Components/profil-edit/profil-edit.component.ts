@@ -19,13 +19,14 @@ export class ProfilEditComponent implements OnInit{
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
-    this.createUserEditForm();
-    console.log(this.user);
+    this.createUserEditForm(); 
+    this.createPasswordForm();
     
   }
 
   user : User;
   userEditForm : FormGroup;
+  userPasswordForm : FormGroup;
 
   createUserEditForm(){
     this.userEditForm = this.formBuilder.group({
@@ -35,16 +36,30 @@ export class ProfilEditComponent implements OnInit{
     })
   }
 
+  createPasswordForm(){
+    this.userPasswordForm = this.formBuilder.group({
+      email: [this.user.email],
+      oldPassword : ["", Validators.required],
+      newPassword : ["", Validators.required],
+    })
+    console.log(this.userPasswordForm)
+  }
+
   updateUser(){
     let userEditModel = Object.assign({}, this.userEditForm.value);
-    let model = <User>{
-
-    }
     this.userService.userUpdate(userEditModel).subscribe(response => {
       this.toastrService.success("Durumu", "Başarılı");
     })
   }
 
+  updatePassword(){
+    let userChangeModel = Object.assign({}, this.userPasswordForm.value);
+    console.log(userChangeModel);
+    
+    this.userService.userPasswordUpdate(userChangeModel).subscribe(response => {
+      console.log(response.message);
+    }) 
+  }
 
 
 }
