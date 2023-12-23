@@ -1,27 +1,34 @@
-<form [formGroup]="userEditForm">
-
-
-    <label>Email</label>
-    <input type="email" formControlName="email"><br>
-
-    <label>Firstname</label>
-    <input type="text" formControlName="firstname"><br>
-
-    <label>Lastname</label>
-    <input type="text" formControlName="lastname"><br>
-
-    <button (click)="updateUser()">User info update</button>
-</form>
-
-<hr style="color: #fff;">
-
-<form [formGroup]="userPasswordForm">
-
-    <label>Password old</label>
-    <input type="password" formControlName="oldPassword"><br>
-
-    <label>Password new</label>
-    <input type="password" formControlName="newPassword"><br>
-
-    <button (click)="updatePassword()">Change Password</button>
-</form>
+<div class="wrapper">
+        <form [formGroup]="userEditForm">
+            <h3>Edit Profil</h3>
+            <div class="box">
+                <label>Email</label>
+                <input type="email" formControlName="email">    
+            </div>
+            <div class="box">
+                <label>Firstname</label>
+                <input type="text" formControlName="firstname">    
+            </div>
+            <div class="box">
+                <label>Lastname</label>
+                <input type="text" formControlName="lastname">   
+            </div>
+            <div class="box">
+                <button (click)="updateUser()">Save</button>
+            </div>
+        </form>    
+        <form [formGroup]="userPasswordForm">
+            <h3>Change Password</h3>
+            <div class="box">
+                <label>Password old</label>
+                <input type="password" formControlName="oldPassword"><br>            
+            </div>
+            <div class="box">
+                <label>Password new</label>
+                <input type="password" formControlName="newPassword"><br>    
+            </div>
+            <div class="box">
+                <button (click)="updatePassword()">Change</button>      
+            </div>
+        </form>
+</div>

@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
     this.createLoginForm();
   }
 
-
-  
   loginForm : FormGroup;
 
   createLoginForm(){
@@ -32,15 +30,14 @@ export class LoginComponent implements OnInit {
     })
   }
 
-
   login(){
     if(this.loginForm.valid){
       let model = Object.assign({}, this.loginForm.value);
       this.authService.login(model).subscribe(response => {
         this.localStorageService.setToken(response.data.token);
         this.authService.getUser();
-        this.router.navigate(["cardetails"]);
         window.location.reload();
+        this.router.navigate(['/']);
       })
     }
   }

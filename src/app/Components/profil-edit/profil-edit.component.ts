@@ -21,7 +21,6 @@ export class ProfilEditComponent implements OnInit{
     this.user = this.authService.getUser();
     this.createUserEditForm(); 
     this.createPasswordForm();
-    
   }
 
   user : User;
@@ -42,23 +41,26 @@ export class ProfilEditComponent implements OnInit{
       oldPassword : ["", Validators.required],
       newPassword : ["", Validators.required],
     })
-    console.log(this.userPasswordForm)
   }
 
   updateUser(){
     let userEditModel = Object.assign({}, this.userEditForm.value);
     this.userService.userUpdate(userEditModel).subscribe(response => {
-      this.toastrService.success("Durumu", "Başarılı");
+      if(response.success){
+        this.toastrService.success(`${response.message}`, "Success");
+      }else{
+        this.toastrService.error("Save failed", "Error");
+      }
     })
   }
 
   updatePassword(){
-    let userChangeModel = Object.assign({}, this.userPasswordForm.value);
-    console.log(userChangeModel);
-    
+    let userChangeModel = Object.assign({}, this.userPasswordForm.value);    
     this.userService.userPasswordUpdate(userChangeModel).subscribe(response => {
-      console.log(response.message);
-    }) 
+      if((response.success)){
+        this.toastrService.success(`${response.message}`, "Success")
+      }
+    })
   }
 
 
