@@ -1,6 +1,5 @@
 *{
-  padding: 0;
-  margin: 0;
+
   font-weight: 500;
 }
 
@@ -123,6 +122,19 @@
   object-fit: cover;
 }
 
+.card .img-add{
+  position: absolute;
+  top:35px;
+  left: 50%;
+  font-size: 55px;
+  transform: translateX(-43%);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.card .img-add:hover{
+  color: red;
+}
 .btn{
   width: 100%;
   display: flex;
@@ -167,6 +179,10 @@
   width: 100%;
   padding:7px 5px;
   font-size: 16px;
+}
+
+.gold-footer{
+  background-color: #efb810;
 }
 
 

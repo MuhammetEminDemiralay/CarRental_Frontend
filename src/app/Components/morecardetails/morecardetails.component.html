@@ -6,8 +6,8 @@
     <i class='bx bx-chevron-left left' (click)="left()"></i>
     <div class="image-box">
         <div class="carousel" #carousel>
-          <img  *ngFor="let image of carImagePaths" [src]="image.imagePath.length !=0 ? imageUrl + image.imagePath : imageUrl + noPhotoUrl"> 
-        </div>
+          <img  *ngFor="let image of carImagePaths" [src]="image.imagePath.length !== 0 ? imageUrl + image.imagePath : imageUrl + noPhotoUrl" /> 
+        </div>                                    
     </div>
     <i class='bx bx-chevron-right right' (click)="right()"></i>
   </div>
@@ -29,6 +29,8 @@
           <button data-bs-toggle="modal" data-bs-target="#add"><i class='bx bx-plus-medical'></i></button>
           <button data-bs-toggle="modal" data-bs-target="#update"><i class='bx bxs-pencil'></i></button>
           <button (click)="delete()"><i class='bx bx-minus'></i></button>
+          <button data-bs-toggle="modal" data-bs-target="#image-add"><i class='bx bxs-image img-operation'><i class='bx bx-plus icon'></i></i></button>
+          <button (click)="imageDelete()"><i class='bx bxs-image img-operation'><i class='bx bx-minus icon'></i></i></button>
         </div>
       </div> 
     </div>
@@ -69,4 +71,18 @@
   </div>
 </div>
 
-
+<div class="modal" tabindex="-1" id="image-add">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title  text-light">İmage Add</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0 d-flex justify-content-center align-items-center" style="height: 300px;">
+        <app-image [carId]="carId"></app-image>
+      </div>
+      <div class="modal-footer gold-footer p-3">
+      </div>
+    </div>
+  </div>
+</div>

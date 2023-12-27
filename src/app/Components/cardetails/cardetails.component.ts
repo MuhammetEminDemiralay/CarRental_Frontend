@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetail } from 'src/app/Models/carDetail';
 import { CarImage } from 'src/app/Models/carİmage';
@@ -45,9 +45,9 @@ export class CarDetailsComponent implements OnInit{
   carDetails : CarDetail[] = [];
   imageUrl = "https://localhost:44313/";
   noPhotoUrl = "Images/cd7f46b67a054b8992f3a4488e8d7347.png"
-  
   searchKey : string;
   filterCarDetails : CarDetail[] = [];
+  carId : number;
 
   getCarDetails(){
     this.carDetailService.getCarsDetail().subscribe(response => {
@@ -94,6 +94,10 @@ export class CarDetailsComponent implements OnInit{
         }
       }
     })
+  }
+
+  imageIdSelector(carId : number){
+    this.carId = carId;
   }
 
 

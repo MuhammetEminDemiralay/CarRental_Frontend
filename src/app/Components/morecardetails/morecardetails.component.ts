@@ -40,12 +40,13 @@ export class MorecardetailsComponent implements OnInit{
 
   carDetails : CarDetail[] = [];
   imageUrl = "https://localhost:44313/";
-  noPhotoUrl = "Images/998defad5f0441dc8b17c0979b53fccb.jpg";
+  noPhotoUrl = "Images/cd7f46b67a054b8992f3a4488e8d7347.png"
   carImagePaths: CarImage[] = [];
   car : Car;
   carId : number;
   isActive : boolean = false;
-  imageIndex : number = 1;
+  imageIndex : number = 0;
+  carImage : CarImage;
   @ViewChild("carousel", {static:true}) _carousel : ElementRef;
 
   getMoreCarDetails(carId : CarDetail){
@@ -56,7 +57,7 @@ export class MorecardetailsComponent implements OnInit{
 
   getCarImagesByCarId(carId : number) {
     this.carImageService.getImagesByCarId(carId).subscribe(response => {
-      this.carImagePaths = response.data.filter(p => p.imagePath);     
+      this.carImagePaths = response.data.filter(p => p.imagePath);           
     })
   }
 
@@ -120,5 +121,15 @@ export class MorecardetailsComponent implements OnInit{
     }
   }
   
-
+  imageDelete(){
+    this.carImagePaths.forEach((item, index) => {
+       if(index === this.imageIndex){
+        this.carImage = item;
+       }  
+    })
+    if(window.confirm("Are you sure"))
+     this.carImageService.imageDelete(this.carImage).subscribe(response => {
+       window.location.reload();
+    })
+  }
 }

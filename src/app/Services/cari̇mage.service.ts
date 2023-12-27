@@ -5,6 +5,7 @@ import { ListResponseModel } from '../Models/listResponseModel';
 import { CarImage } from '../Models/carİmage';
 import { SingleResponseModel } from '../Models/singleResponseModel';
 import { Car } from '../Models/car';
+import { ResponseModel } from '../Models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,9 @@ export class CarİmageService {
     return this.httpClient.post<SingleResponseModel<CarImage>>(this.apiUrl + "CarImage/delete", image);
   }
 
-
+  imageAdd(formData: FormData): Observable<any> {
+    return this.httpClient.post(this.apiUrl + "CarImage/add" , formData);
+  }
 
 
 }

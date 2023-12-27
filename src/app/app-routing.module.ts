@@ -19,6 +19,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
 import { adminGuard, profilGuard } from './Guards/guard'
 import { ProfilEditComponent } from './Components/profil-edit/profil-edit.component';
+import { ImageComponent } from './Components/image/image.component';
 
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path : "cars/statu/:statuId", component : CarDetailsComponent},
   {path : "home", component : HomeComponent},  
   {path : "profil", component : ProfilEditComponent, canActivate:[profilGuard]},
+  {path : "img", component : ImageComponent},
   {path : "**", component : ComingsoonComponent},
  
 

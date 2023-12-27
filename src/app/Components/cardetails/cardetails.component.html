@@ -13,7 +13,10 @@
 
     <div class="cards">
       <ul ngS *ngFor="let carDetail of (filterCarDetails.length === 0 ? carDetails : filterCarDetails)" class="list-group list-group-flush card">
-        <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
+        <div>
+          <img [src]="carDetail.imagePath.length !== 0 ? imageUrl + carDetail.imagePath[0] : imageUrl + noPhotoUrl">
+          <i *ngIf="(carDetail.imagePath.length == 0) && isAdmin()" class='bx bxs-image img-add' (click)="imageIdSelector(carDetail.id)" data-bs-toggle="modal" data-bs-target="#image-add"></i>
+        </div>
         <li  class="list-group-item text-center text"><b id="model">{{carDetail.brandName}} || {{carDetail.model}}</b><br> <span id="description">{{carDetail.description}}</span></li>                                            
         <li class="list-group-item text-center text">{{carDetail.modelYear}}</li>
         <li class="list-group-item text-center text">{{carDetail.colorName}}</li>
@@ -30,3 +33,20 @@
   </div>
 </div>
 
+
+
+<div class="modal" tabindex="-1" id="image-add">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header  bg-dark">
+        <h5 class="modal-title text-light">İmage add</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0 d-flex justify-content-center align-items-center" style="height: 300px;">
+        <app-image [carId]="carId"></app-image>
+      </div>
+      <div class="modal-footer gold-footer p-3">
+      </div>
+    </div>
+  </div>
+</div>

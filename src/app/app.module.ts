@@ -33,6 +33,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { ComingsoonComponent } from './Components/comingsoon/comingsoon.component';
 import { StoppropagationDirective } from './Directives/stoppropagation.directive';
 import { ProfilEditComponent } from './Components/profil-edit/profil-edit.component';
+import { ImageComponent } from './Components/image/image.component';
 
 
 
@@ -67,6 +68,7 @@ export function tokenGetter() {
     ComingsoonComponent,
     StoppropagationDirective,
     ProfilEditComponent,
+    ImageComponent,
 
   ],
   imports: [

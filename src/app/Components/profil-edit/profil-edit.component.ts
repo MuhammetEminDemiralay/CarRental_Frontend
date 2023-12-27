@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/Models/user';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -14,7 +15,8 @@ export class ProfilEditComponent implements OnInit{
   constructor(private authService : AuthService,
               private formBuilder : FormBuilder,
               private userService : UserService,
-              private toastrService : ToastrService
+              private toastrService : ToastrService,
+              private router : Router
               ){}
 
   ngOnInit(): void {
@@ -48,9 +50,9 @@ export class ProfilEditComponent implements OnInit{
     this.userService.userUpdate(userEditModel).subscribe(response => {
       if(response.success){
         this.toastrService.success(`${response.message}`, "Success");
-      }else{
-        this.toastrService.error("Save failed", "Error");
       }
+      this.authService.logOut();
+      this.router.navigate(["login"])
     })
   }
 
@@ -60,6 +62,8 @@ export class ProfilEditComponent implements OnInit{
       if((response.success)){
         this.toastrService.success(`${response.message}`, "Success")
       }
+      this.authService.logOut();
+      this.router.navigate(["login"])
     })
   }
 
